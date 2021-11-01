@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as math;
-import 'spinner_dot.dart';
+import 'dart:math' as math2;
+import 'build_dot.dart';
 
-class Emotion extends StatefulWidget {
+class HexagonDots extends StatefulWidget {
   final double size;
   final Color color;
   final int time;
-  const Emotion({
+  const HexagonDots({
     required this.size,
     required this.color,
-    this.time = 3000,
+    required this.time,
   });
 
   @override
   _BuildSpinnerState createState() => _BuildSpinnerState();
 }
 
-class _BuildSpinnerState extends State<Emotion> with TickerProviderStateMixin {
+class _BuildSpinnerState extends State<HexagonDots>
+    with TickerProviderStateMixin {
   late AnimationController _sizeController;
   late AnimationController _rotationController;
 
@@ -64,7 +66,7 @@ class _BuildSpinnerState extends State<Emotion> with TickerProviderStateMixin {
   }
 
   Widget _buildInitialDot(double angle, Interval interval) {
-    return SpinnerDot(
+    return BuildDot(
       size: widget.size,
       color: widget.color,
       angle: angle,
@@ -80,7 +82,7 @@ class _BuildSpinnerState extends State<Emotion> with TickerProviderStateMixin {
   }
 
   Widget _buildLaterDot(double angle, Interval interval) {
-    return SpinnerDot(
+    return BuildDot(
       size: widget.size,
       color: widget.color,
       angle: angle,
@@ -97,6 +99,12 @@ class _BuildSpinnerState extends State<Emotion> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final angle60 = math2.pi / 3;
+    final angle120 = 2 * math2.pi / 3;
+    final angle180 = math2.pi;
+    final angle240 = 4 * math2.pi / 3;
+    final angle300 = 5 * math2.pi / 3;
+
     return Center(
       child: showBottom
           ? AnimatedBuilder(

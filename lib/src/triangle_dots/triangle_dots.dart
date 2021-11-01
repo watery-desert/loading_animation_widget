@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'build_sides.dart';
 
-class DotTrangle extends StatefulWidget {
+class DotsTriangle extends StatefulWidget {
   final double size;
   final Color color;
   final int time;
-  const DotTrangle({
+  const DotsTriangle({
     Key? key,
     required this.color,
     required this.size,
-    this.time = 1200,
+  required  this.time,
   }) : super(key: key);
 
   @override
-  _DotTrangleState createState() => _DotTrangleState();
+  _DotsTriangleState createState() => _DotsTriangleState();
 }
 
-class _DotTrangleState extends State<DotTrangle>
+class _DotsTriangleState extends State<DotsTriangle>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

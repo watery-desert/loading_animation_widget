@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as math;
 import '../widgets/circular_dot.dart';
 
-class SpinnerDot extends StatelessWidget {
+class BuildDot extends StatelessWidget {
   final Color color;
   final double angle;
   final double size;
   final double dotSize;
-  const SpinnerDot({
+  const BuildDot({
     required this.color,
     required this.angle,
     required this.size,

@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class Flickr extends StatefulWidget {
   final List<Color> colors;
   final double size;
-  final int duration;
+  final int time;
   const Flickr({
     Key? key,
     required this.colors,
     required this.size,
-    this.duration = 2000,
+    required this.time,
   })  : assert(colors.length == 2),
         super(key: key);
 
@@ -26,7 +26,7 @@ class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.duration),
+      duration: Duration(milliseconds: widget.time),
     )..repeat();
   }
 
@@ -84,6 +84,12 @@ class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }
 

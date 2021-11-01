@@ -5,10 +5,12 @@ import 'dart:math' as math;
 class ElementalLoader extends StatefulWidget {
   final double size;
   final Color color;
+  final int time;
   const ElementalLoader({
     Key? key,
     required this.color,
     required this.size,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -24,7 +26,7 @@ class _ElementalLoaderState extends State<ElementalLoader>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration:  Duration(milliseconds: widget.time),
     )..repeat();
   }
 

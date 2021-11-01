@@ -218,7 +218,7 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+    super.dispose();
   }
 }

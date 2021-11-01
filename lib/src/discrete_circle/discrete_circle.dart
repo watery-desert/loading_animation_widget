@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import '../widgets/draw_arc.dart';
 import 'dart:math' as math;
 
-class DiscreteCircular extends StatefulWidget {
+class DiscreteCircle extends StatefulWidget {
   final double size;
   final Color color;
-  final int duration;
-  const DiscreteCircular({
+  final int time;
+  const DiscreteCircle({
     Key? key,
     required this.color,
     required this.size,
-    this.duration = 2000,
+    required this.time,
   }) : super(key: key);
 
   @override
-  State<DiscreteCircular> createState() => _DiscreteCircularState();
+  State<DiscreteCircle> createState() => _DiscreteCircleState();
 }
 
-class _DiscreteCircularState extends State<DiscreteCircular>
+class _DiscreteCircleState extends State<DiscreteCircle>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
@@ -26,7 +26,7 @@ class _DiscreteCircularState extends State<DiscreteCircular>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.duration),
+      duration: Duration(milliseconds: widget.time),
     )..repeat();
   }
 

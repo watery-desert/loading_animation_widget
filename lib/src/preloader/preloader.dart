@@ -11,7 +11,7 @@ class Preloader extends StatefulWidget {
     Key? key,
     required this.size,
     required this.colors,
-    this.time = 3000,
+    required this.time,
   }) : super(key: key);
 
   @override

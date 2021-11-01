@@ -4,15 +4,15 @@ import '../beat/draw_ring.dart';
 class Beat extends StatefulWidget {
   final double size;
   final Color color;
-  final int duration;
+  final int time;
 
   const Beat({
     Key? key,
     required this.color,
     required this.size,
-    required this.duration,
+    required this.time,
   }) : 
-  assert (duration > 0, 'Duration must greater than 0'),
+  assert (time > 0, 'Duration must greater than 0'),
   super(key: key);
 
   @override
@@ -28,7 +28,7 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(
-        milliseconds: widget.duration,
+        milliseconds: widget.time,
       ),
     )..repeat();
   }
@@ -133,7 +133,7 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
+    super.dispose();
   }
 }
