@@ -18,8 +18,37 @@ import 'src/staggered_wave/staggered_wave.dart';
 import 'src/stretched_dots/stretched_dots.dart';
 import 'src/waving_dots/waving_dots.dart';
 
+
 class LoadingAnimationWidget {
   LoadingAnimationWidget._();
+
+
+
+  static Widget flickr({
+    /// Color of the widget
+    required List<Color> colors,
+    required double size,
+    int time = 2000,
+  }) {
+    return Flickr(
+      colors: colors,
+      size: size,
+      time: time,
+    );
+  }
+
+   static Widget hexagonDots({
+    /// Color of the widget
+    required Color color,
+    required double size,
+    int time = 3000,
+  }) {
+    return HexagonDots(
+      color: color,
+      size: size,
+      time: time,
+    );
+  }
 
   /// Give
   static Widget beat({
@@ -72,18 +101,7 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget hexagonDots({
-    /// Color of the widget
-    required Color color,
-    required double size,
-    int time = 3000,
-  }) {
-    return HexagonDots(
-      color: color,
-      size: size,
-      time: time,
-    );
-  }
+ 
 
   static Widget elementalLoader({
     /// Color of the widget
@@ -98,18 +116,7 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget flickr({
-    /// Color of the widget
-    required List<Color> colors,
-    required double size,
-    int time = 2000,
-  }) {
-    return Flickr(
-      colors: colors,
-      size: size,
-      time: time,
-    );
-  }
+
 
   static Widget horizontalDotsRotation({
     /// Color of the widget

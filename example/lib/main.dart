@@ -149,6 +149,24 @@ final listOfAnimations = <AppBody>[
     'Initial',
     Text('Initial'),
   ),
+ 
+  AppBody(
+    'discrete circle',
+    LoadingAnimationWidget.flickr(
+      colors: [
+        Color(0xFF0063DC),
+        Color(0xFFFF0084),
+      ],
+      size: 200,
+    ),
+  ),
+  AppBody(
+    'discrete circle',
+    LoadingAnimationWidget.hexagonDots(
+      color: Colors.red,
+      size: 200,
+    ),
+  ),
   AppBody(
     'beat',
     LoadingAnimationWidget.dotsInOut(
@@ -174,23 +192,6 @@ final listOfAnimations = <AppBody>[
     'discrete circle',
     LoadingAnimationWidget.elementalLoader(
       color: Colors.white,
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.flickr(
-      colors: [
-        Color(0xFF0063DC),
-        Color(0xFFFF0084),
-      ],
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.hexagonDots(
-      color: Colors.red,
       size: 200,
     ),
   ),

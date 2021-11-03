@@ -1,4 +1,5 @@
 
+⚠️ This package nowhere ready for use, this is only for public beta test. API may change and also some of the animation may be removed based on the feedback. I am also developing some animations so it's under development.
 ### Design credits
 
 1. [NewtonCradle](https://dribbble.com/shots/2968029-Newton-Cradle-preloader-principle-freebie)
@@ -18,7 +19,7 @@
 
 
 
-<details>
+<!-- <details>
 <summary> All packages</summary>
 <br>
 
@@ -31,4 +32,4 @@
 ➜ [Loading Animation Widget](https://github.com/watery-desert/loading_animation_widget)
 </summary> 
 </details>
-<br>
+<br> -->

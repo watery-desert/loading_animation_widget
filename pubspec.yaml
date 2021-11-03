@@ -1,5 +1,7 @@
 name: loading_animation_widget
-description: A new Flutter project.
+description: flutter loading animation or spiner whatever you wanna call.
+repository: https://github.com/watery-desert/loading_animation_widget
+
 
 
 version: 0.0.1-beta.1

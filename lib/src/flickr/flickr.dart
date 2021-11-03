@@ -101,6 +101,7 @@ class Disk extends StatelessWidget {
   final Interval interval;
   final bool visibility;
   final AnimationController controller;
+
   const Disk({
     Key? key,
     required this.size,

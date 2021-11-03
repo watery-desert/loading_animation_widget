@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math.dart' as math;
-import 'dart:math' as math2;
+import 'dart:math' as math;
 import 'build_dot.dart';
 
 class HexagonDots extends StatefulWidget {
@@ -8,153 +7,105 @@ class HexagonDots extends StatefulWidget {
   final Color color;
   final int time;
   const HexagonDots({
+    Key? key,
     required this.size,
     required this.color,
     required this.time,
-  });
+  }) : super(key: key);
 
   @override
   _BuildSpinnerState createState() => _BuildSpinnerState();
 }
 
 class _BuildSpinnerState extends State<HexagonDots>
-    with TickerProviderStateMixin {
-  late AnimationController _sizeController;
-  late AnimationController _rotationController;
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
 
   late Animation<double> _rotationAnimation;
-  bool showBottom = true;
 
   @override
   void initState() {
     super.initState();
-
-    final int sizeDuration = (widget.time ~/ 4);
-
-    _sizeController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: sizeDuration),
-    );
-
-    _rotationController = AnimationController(
+    _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: widget.time),
+    )..repeat();
+
+    _rotationAnimation = Tween<double>(begin: 0, end: 3 * math.pi / 2).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Interval(0.3, 1.0),
+      ),
     );
 
-    _rotationAnimation =
-        Tween<double>(begin: 0.0, end: 360).animate(_rotationController);
-
-    _sizeController.forward();
-
-    _sizeController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        setState(() {
-          showBottom = false;
-        });
-        _rotationController.forward(from: 0.0);
-      }
-    });
-
-    _rotationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        setState(() {
-          showBottom = true;
-        });
-        _sizeController.forward(from: 0.0);
-      }
-    });
+   
   }
 
-  Widget _buildInitialDot(double angle, Interval interval) {
-    return BuildDot(
-      size: widget.size,
-      color: widget.color,
-      angle: angle,
-      dotSize: Tween<double>(begin: 0.0, end: widget.size / 6)
-          .animate(
-            CurvedAnimation(
-              parent: _sizeController,
-              curve: interval,
-            ),
-          )
-          .value,
-    );
-  }
+  Widget _buildInitialDot(double angle, Interval interval) => BuildDot.first(
+        size: widget.size,
+        color: widget.color,
+        angle: angle,
+        controller: _animationController,
+        interval: interval,
+      );
 
-  Widget _buildLaterDot(double angle, Interval interval) {
-    return BuildDot(
-      size: widget.size,
-      color: widget.color,
-      angle: angle,
-      dotSize: Tween<double>(begin: widget.size / 6, end: 0.0)
-          .animate(
-            CurvedAnimation(
-              parent: _rotationController,
-              curve: interval,
-            ),
-          )
-          .value,
-    );
-  }
+  Widget _buildLaterDot(double angle, Interval interval) => BuildDot.second(
+        size: widget.size,
+        color: widget.color,
+        angle: angle,
+        controller: _animationController,
+        interval: interval,
+      );
 
   @override
   Widget build(BuildContext context) {
-    final angle60 = math2.pi / 3;
-    final angle120 = 2 * math2.pi / 3;
-    final angle180 = math2.pi;
-    final angle240 = 4 * math2.pi / 3;
-    final angle300 = 5 * math2.pi / 3;
+    final angle30 = math.pi / 6;
+    final angle60 = math.pi / 3;
+    final angle120 = 2 * math.pi / 3;
+    final angle180 = math.pi;
+    final angle240 = 4 * math.pi / 3;
+    final angle300 = 5 * math.pi / 3;
 
     return Center(
-      child: showBottom
-          ? AnimatedBuilder(
-              animation: _sizeController,
-              builder: (_, __) => Container(
-                width: widget.size,
-                height: widget.size,
-                // color: Colors.brown,
+        child: AnimatedBuilder(
+      animation: _animationController,
+      builder: (_, __) => Container(
+        width: widget.size,
+        height: widget.size,
+        // color: Colors.white,
+        child: _animationController.value <= 0.28
+            ? Stack(
+                alignment: Alignment.center,
+                children: [
+                  _buildInitialDot(0 + angle30, Interval(0, 0.08)),
+                  _buildInitialDot(angle60 + angle30, Interval(0.04, 0.12)),
+                  _buildInitialDot(angle120 + angle30, Interval(0.08, 0.16)),
+                  _buildInitialDot(angle180 + angle30, Interval(0.12, 0.20)),
+                  _buildInitialDot(angle240 + angle30, Interval(0.16, 0.24)),
+                  _buildInitialDot(angle300 + angle30, Interval(0.20, 0.28)),
+                ],
+              )
+            : Transform.rotate(
+                angle: _rotationAnimation.value,
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    _buildInitialDot(0, Interval(0, 0.35)),
-                    _buildInitialDot(60, Interval(0.15, 0.5)),
-                    _buildInitialDot(120, Interval(0.25, 0.6)),
-                    _buildInitialDot(180, Interval(0.35, 0.7)),
-                    _buildInitialDot(240, Interval(0.45, 0.8)),
-                    _buildInitialDot(300, Interval(0.55, 0.9)),
+                    _buildLaterDot(0 + angle30, Interval(0.80, 0.88)),
+                    _buildLaterDot(angle60 + angle30, Interval(0.76, 0.84)),
+                    _buildLaterDot(angle120 + angle30, Interval(0.72, 0.80)),
+                    _buildLaterDot(angle180 + angle30, Interval(0.68, 0.76)),
+                    _buildLaterDot(angle240 + angle30, Interval(0.64, 0.72)),
+                    _buildLaterDot(angle300 + angle30, Interval(0.60, 0.68)),
                   ],
                 ),
               ),
-            )
-          : AnimatedBuilder(
-              animation: _rotationController,
-              builder: (_, __) => Transform.rotate(
-                angle: math.radians(_rotationAnimation.value),
-                child: Container(
-                  // color: Colors.brown,
-                  width: widget.size,
-                  height: widget.size,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      _buildLaterDot(0, Interval(0.85, 0.90)),
-                      _buildLaterDot(60, Interval(0.80, 0.85)),
-                      _buildLaterDot(120, Interval(0.75, 0.80)),
-                      _buildLaterDot(180, Interval(0.70, 0.75)),
-                      _buildLaterDot(240, Interval(0.65, 0.70)),
-                      _buildLaterDot(300, Interval(0.60, 0.65)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-    );
+      ),
+    ));
   }
 
   @override
   void dispose() {
-    _sizeController.dispose();
-    _rotationController.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 }
