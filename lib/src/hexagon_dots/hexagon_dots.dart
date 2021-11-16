@@ -34,11 +34,12 @@ class _BuildSpinnerState extends State<HexagonDots>
     _rotationAnimation = Tween<double>(begin: 0, end: 3 * math.pi / 2).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: Interval(0.3, 1.0),
+        curve: const Interval(
+          0.3,
+          1.0,
+        ),
       ),
     );
-
-   
   }
 
   Widget _buildInitialDot(double angle, Interval interval) => BuildDot.first(
@@ -59,43 +60,52 @@ class _BuildSpinnerState extends State<HexagonDots>
 
   @override
   Widget build(BuildContext context) {
-    final angle30 = math.pi / 6;
-    final angle60 = math.pi / 3;
-    final angle120 = 2 * math.pi / 3;
-    final angle180 = math.pi;
-    final angle240 = 4 * math.pi / 3;
-    final angle300 = 5 * math.pi / 3;
+    const double angle30 = math.pi / 6;
+    const double angle60 = math.pi / 3;
+    const double angle120 = 2 * math.pi / 3;
+    const double angle180 = math.pi;
+    const double angle240 = 4 * math.pi / 3;
+    const double angle300 = 5 * math.pi / 3;
 
     return Center(
         child: AnimatedBuilder(
       animation: _animationController,
-      builder: (_, __) => Container(
+      builder: (_, __) => SizedBox(
         width: widget.size,
         height: widget.size,
-        // color: Colors.white,
         child: _animationController.value <= 0.28
             ? Stack(
                 alignment: Alignment.center,
-                children: [
-                  _buildInitialDot(0 + angle30, Interval(0, 0.08)),
-                  _buildInitialDot(angle60 + angle30, Interval(0.04, 0.12)),
-                  _buildInitialDot(angle120 + angle30, Interval(0.08, 0.16)),
-                  _buildInitialDot(angle180 + angle30, Interval(0.12, 0.20)),
-                  _buildInitialDot(angle240 + angle30, Interval(0.16, 0.24)),
-                  _buildInitialDot(angle300 + angle30, Interval(0.20, 0.28)),
+                children: <Widget> [
+                  _buildInitialDot(0 + angle30, const Interval(0, 0.08)),
+                  _buildInitialDot(
+                      angle60 + angle30, const Interval(0.04, 0.12)),
+                  _buildInitialDot(
+                      angle120 + angle30, const Interval(0.08, 0.16)),
+                  _buildInitialDot(
+                      angle180 + angle30, const Interval(0.12, 0.20)),
+                  _buildInitialDot(
+                      angle240 + angle30, const Interval(0.16, 0.24)),
+                  _buildInitialDot(
+                      angle300 + angle30, const Interval(0.20, 0.28)),
                 ],
               )
             : Transform.rotate(
                 angle: _rotationAnimation.value,
                 child: Stack(
                   alignment: Alignment.center,
-                  children: [
-                    _buildLaterDot(0 + angle30, Interval(0.80, 0.88)),
-                    _buildLaterDot(angle60 + angle30, Interval(0.76, 0.84)),
-                    _buildLaterDot(angle120 + angle30, Interval(0.72, 0.80)),
-                    _buildLaterDot(angle180 + angle30, Interval(0.68, 0.76)),
-                    _buildLaterDot(angle240 + angle30, Interval(0.64, 0.72)),
-                    _buildLaterDot(angle300 + angle30, Interval(0.60, 0.68)),
+                  children: <Widget> [
+                    _buildLaterDot(0 + angle30, const Interval(0.80, 0.88)),
+                    _buildLaterDot(
+                        angle60 + angle30, const Interval(0.76, 0.84)),
+                    _buildLaterDot(
+                        angle120 + angle30, const Interval(0.72, 0.80)),
+                    _buildLaterDot(
+                        angle180 + angle30, const Interval(0.68, 0.76)),
+                    _buildLaterDot(
+                        angle240 + angle30, const Interval(0.64, 0.72)),
+                    _buildLaterDot(
+                        angle300 + angle30, const Interval(0.60, 0.68)),
                   ],
                 ),
               ),

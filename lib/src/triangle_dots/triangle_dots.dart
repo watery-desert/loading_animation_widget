@@ -10,7 +10,7 @@ class DotsTriangle extends StatefulWidget {
     Key? key,
     required this.color,
     required this.size,
-  required  this.time,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -41,18 +41,16 @@ class _DotsTriangleState extends State<DotsTriangle>
 
     return AnimatedBuilder(
       animation: _animationController,
-      builder: (_, __) => Container(
+      builder: (_, __) => SizedBox(
         width: size,
         height: size,
-        // color: Colors.white,
         child: Center(
-          child: Container(
-            // color: Colors.green,
+          child: SizedBox(
             width: size,
             height: 0.884 * size,
             child: Stack(
               // fit: StackFit.expand,
-              children: [
+              children: <Widget>[
                 Align(
                   alignment: Alignment.topCenter,
                   child: Transform.translate(

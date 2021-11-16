@@ -63,7 +63,7 @@ class BuildSides extends StatelessWidget {
           ? controller.value <= middleInterval
           : controller.value >= middleInterval,
       child: Transform.translate(
-        offset: Tween(
+        offset: Tween<Offset>(
           begin: forward ? Offset.zero : Offset(offset, 0),
           end: forward ? Offset(offset, 0) : Offset.zero,
         )
@@ -72,7 +72,7 @@ class BuildSides extends StatelessWidget {
             )
             .value,
         child: RoundedRectangle.horizontal(
-          width: Tween(
+          width: Tween<double>(
                   begin: forward ? depth : maxLength,
                   end: forward ? maxLength : depth)
               .animate(
@@ -90,7 +90,7 @@ class BuildSides extends StatelessWidget {
           ? controller.value >= middleInterval
           : controller.value <= middleInterval,
       child: Transform.translate(
-        offset: Tween(
+        offset: Tween<Offset>(
           begin: forward ? Offset(-offset, 0) : Offset.zero,
           end: forward ? Offset.zero : Offset(-offset, 0),
         )
@@ -99,7 +99,7 @@ class BuildSides extends StatelessWidget {
             )
             .value,
         child: RoundedRectangle.horizontal(
-          width: Tween(
+          width: Tween<double>(
                   begin: forward ? maxLength : depth,
                   end: forward ? depth : maxLength)
               .animate(
@@ -112,7 +112,7 @@ class BuildSides extends StatelessWidget {
       ),
     );
 
-    final List<Widget> children = [firstChild, secondChild];
+    final List<Widget> children = <Widget> [firstChild, secondChild];
 
     return Transform.rotate(
       angle: rotationAngle,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/circular_dot.dart';
+import '../widgets/draw_dot.dart';
 import '../widgets/draw_triangle.dart';
 
 class HalfTringleDot extends StatefulWidget {
@@ -89,7 +89,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
             animation: _animationController,
             builder: (_, __) => Stack(
               fit: StackFit.expand,
-              children: [
+              children:<Widget> [
                 Visibility(
                   visible: _fistVisibility(_animationController),
                   child: Triangle.draw(
@@ -152,7 +152,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                   width: innerWidth,
                   height: innerHeight,
                   child: Stack(
-                    children: [
+                    children:<Widget> [
                       Visibility(
                         visible: _fistVisibility(_animationController),
                         child: Transform.translate(
@@ -161,7 +161,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                                   end: topLeftDotOffset)
                               .animate(firstCurvedAnimation)
                               .value,
-                          child: CircularDot(
+                          child: DrawDot.circular(
                             dotSize: storkeWidth,
                             color: color,
                           ),
@@ -175,7 +175,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                                   end: bottomMiddleDotOffset)
                               .animate(secondCurvedAnimation)
                               .value,
-                          child: CircularDot(
+                          child: DrawDot.circular(
                             dotSize: storkeWidth,
                             color: color,
                           ),
@@ -189,7 +189,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                                   end: topRightDotOffset)
                               .animate(thirdCurvedAnimation)
                               .value,
-                          child: CircularDot(
+                          child: DrawDot.circular(
                             dotSize: storkeWidth,
                             color: color,
                           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 const Color _kAppColor = Color(0xFFFDDE6F);
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           canvasColor: _kAppColor,
-          snackBarTheme: SnackBarThemeData(
+          snackBarTheme: const SnackBarThemeData(
               backgroundColor: Colors.brown,
               contentTextStyle: TextStyle(
                 fontSize: 20,
@@ -63,9 +62,9 @@ class _HomePageState extends State<HomePage> {
   void _onTapPrevious() {
     if (_currentPage == 0) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text(
-            'There is nothing left LOL 🌚🤣',
+            'There is nothing left 🌚',
           ),
         ),
       );
@@ -80,7 +79,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return PageView(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       controller: _pageController,
       children: listOfAnimations
           .map(
@@ -92,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                     bottom: false,
                     child: Text(
                       appBody.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
                       ),
@@ -101,6 +100,10 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: Center(
                       child: appBody.widget,
+                      // child: Transform.scale(
+                      //   scale: 4,
+                      //   child: CircularProgressIndicator(),
+                      // ),
                     ),
                   ),
                 ],
@@ -113,13 +116,13 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.chevron_left_rounded,
                         ),
                         onPressed: _onTapPrevious,
                       ),
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.chevron_right_rounded,
                         ),
                         onPressed: _onTapNext,
@@ -147,28 +150,88 @@ class AppBody {
 final listOfAnimations = <AppBody>[
   AppBody(
     'Initial',
-    Text('Initial'),
+    const Text('Initial'),
   ),
- 
+  AppBody(
+    'inkDrop',
+    LoadingAnimationWidget.inkDrop(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'staggeredDotWave',
+    LoadingAnimationWidget.staggeredDotWave(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'fourRotatingDots',
+    LoadingAnimationWidget.fourRotatingDots(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'fallingDot',
+    LoadingAnimationWidget.fallingDot(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'wavingDots',
+    LoadingAnimationWidget.wavingDots(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'prograssiveDots',
+    LoadingAnimationWidget.prograssiveDots(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
   AppBody(
     'discrete circle',
+    LoadingAnimationWidget.discreteCircle(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'archCircle',
+    LoadingAnimationWidget.archCircle(
+      color: Colors.white,
+      size: 200,
+    ),
+  ),
+  AppBody(
+    'bouncingBall',
+    LoadingAnimationWidget.bouncingBall(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'flickr',
     LoadingAnimationWidget.flickr(
-      colors: [
-        Color(0xFF0063DC),
-        Color(0xFFFF0084),
-      ],
-      size: 200,
+      leftDotColor: const Color(0xFF0063DC),
+      rightDotColor: const Color(0xFFFF0084),
+      size: 100,
     ),
   ),
   AppBody(
-    'discrete circle',
+    'hexagonDots',
     LoadingAnimationWidget.hexagonDots(
-      color: Colors.red,
-      size: 200,
+      color: Colors.white,
+      size: 100,
     ),
   ),
   AppBody(
-    'beat',
+    'dotsInOut',
     LoadingAnimationWidget.dotsInOut(
       color: Colors.white,
       size: 100,
@@ -182,80 +245,53 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.discreteCircle(
+    'elementalLoader',
+    LoadingAnimationWidget.elementalLoader(
       color: Colors.white,
       size: 100,
     ),
   ),
   AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.elementalLoader(
+    'horizontalDotsRotation',
+    LoadingAnimationWidget.horizontalDotsRotation(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'newtonCradle',
+    LoadingAnimationWidget.newtonCradle(
       color: Colors.white,
       size: 200,
     ),
   ),
   AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.horizontalDotsRotation(
-      color: Colors.red,
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.inkDrop(
-      color: Colors.red,
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.newtonCradle(
-      color: Colors.red,
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
+    'preloader',
     LoadingAnimationWidget.preloader(
-      colors: [Colors.red, Colors.blue],
-      size: 200,
+      leftDotColor: const Color(0xFF0063DC),
+      rightDotColor: const Color(0xFFFF0084),
+      size: 100,
     ),
   ),
   AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.staggeredDotWave(
-      color: Colors.red,
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
+    'stretchedDots',
     LoadingAnimationWidget.stretchedDots(
-      color: Colors.red,
-      size: 200,
+      color: Colors.white,
+      size: 100,
     ),
   ),
   AppBody(
-    'discrete circle',
+    'halfTringleDot',
     LoadingAnimationWidget.halfTringleDot(
-      color: Colors.red,
-      size: 200,
+      color: Colors.white,
+      size: 100,
     ),
   ),
   AppBody(
-    'discrete circle',
+    'dotsTriangle',
     LoadingAnimationWidget.dotsTriangle(
-      color: Colors.red,
-      size: 200,
-    ),
-  ),
-  AppBody(
-    'discrete circle',
-    LoadingAnimationWidget.wavingDots(
-      color: Colors.red,
-      size: 200,
+      color: Colors.white,
+      size: 100,
     ),
   ),
 ];

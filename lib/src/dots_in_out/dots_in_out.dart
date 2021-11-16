@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/circular_dot.dart';
+import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
 
 class DotsInOut extends StatefulWidget {
@@ -38,18 +38,18 @@ class _DotsInOutState extends State<DotsInOut>
     final double dotSize = size / 3;
     final double edgeOffset = (size - dotSize) / 2;
 
-    final Interval firstDotsInterval = Interval(
+    const Interval firstDotsInterval = Interval(
       0.0,
       0.50,
       curve: Curves.easeInOutCubic,
     );
-    final Interval secondDotsInterval = Interval(
+    const Interval secondDotsInterval = Interval(
       0.50,
       1.0,
       curve: Curves.easeInOutCubic,
     );
 
-    return Container(
+    return SizedBox(
       width: size,
       height: size,
       child: AnimatedBuilder(
@@ -58,8 +58,8 @@ class _DotsInOutState extends State<DotsInOut>
           offset: Offset(0, size / 12),
           child: Stack(
             alignment: Alignment.center,
-            children: [
-              BuildDot.first(
+            children: <Widget> [
+              _BuildDot.first(
                 color: color,
                 size: dotSize,
                 controller: _animationController,
@@ -69,7 +69,7 @@ class _DotsInOutState extends State<DotsInOut>
                 interval: firstDotsInterval,
               ),
 
-              BuildDot.first(
+              _BuildDot.first(
                 color: color,
                 size: dotSize,
                 controller: _animationController,
@@ -79,7 +79,7 @@ class _DotsInOutState extends State<DotsInOut>
                 interval: firstDotsInterval,
               ),
 
-              BuildDot.first(
+              _BuildDot.first(
                 color: color,
                 size: dotSize,
                 controller: _animationController,
@@ -91,7 +91,7 @@ class _DotsInOutState extends State<DotsInOut>
 
               /// Next 3 dots
 
-              BuildDot.second(
+              _BuildDot.second(
                 controller: _animationController,
                 beginAngle: 0,
                 endAngle: -math.pi,
@@ -101,7 +101,7 @@ class _DotsInOutState extends State<DotsInOut>
                 size: dotSize,
               ),
 
-              BuildDot.second(
+              _BuildDot.second(
                 controller: _animationController,
                 beginAngle: 2 * math.pi / 3,
                 endAngle: -math.pi / 3,
@@ -111,7 +111,7 @@ class _DotsInOutState extends State<DotsInOut>
                 size: dotSize,
               ),
 
-              BuildDot.second(
+              _BuildDot.second(
                 controller: _animationController,
                 beginAngle: 4 * math.pi / 3,
                 endAngle: math.pi / 3,
@@ -134,7 +134,7 @@ class _DotsInOutState extends State<DotsInOut>
   }
 }
 
-class BuildDot extends StatelessWidget {
+class _BuildDot extends StatelessWidget {
   final AnimationController controller;
   final double beginAngle;
   final double endAngle;
@@ -144,7 +144,7 @@ class BuildDot extends StatelessWidget {
   final double size;
   final bool first;
 
-  const BuildDot.first({
+  const _BuildDot.first({
     Key? key,
     required this.controller,
     required this.beginAngle,
@@ -156,7 +156,7 @@ class BuildDot extends StatelessWidget {
   })  : first = true,
         super(key: key);
 
-  const BuildDot.second({
+  const _BuildDot.second({
     Key? key,
     required this.controller,
     required this.beginAngle,
@@ -189,10 +189,13 @@ class BuildDot extends StatelessWidget {
             end: first ? Offset(0, -dotOffset) : Offset.zero,
           )
               .animate(
-                CurvedAnimation(parent: controller, curve: interval),
+                CurvedAnimation(
+                  parent: controller,
+                  curve: interval,
+                ),
               )
               .value,
-          child: CircularDot(
+          child: DrawDot.circular(
             color: color,
             dotSize: size,
           ),

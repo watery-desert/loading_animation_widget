@@ -6,10 +6,12 @@ class InkDrop extends StatefulWidget {
   final double size;
   final Color color;
   final Color ringColor;
+  final int time;
   const InkDrop({
     Key? key,
     required this.size,
     required this.color,
+    required this.time,
     this.ringColor = const Color(0x1A000000),
   }) : super(key: key);
 
@@ -25,26 +27,26 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1200),
+      duration: Duration(
+        milliseconds: widget.time,
+      ),
     )..repeat();
   }
 
   @override
   Widget build(BuildContext context) {
-    final size = widget.size;
-    final color = widget.color;
-    final ringColor = widget.ringColor;
-    final strokeWidth = size / 5;
+    final double size = widget.size;
+    final Color color = widget.color;
+    final Color ringColor = widget.ringColor;
+    final double strokeWidth = size / 5;
     return SizedBox(
-      // alignment: Alignment.center,
-      // color: Colors.green,
       width: size,
       height: size,
       child: AnimatedBuilder(
         animation: _animationController,
         builder: (_, __) => Stack(
           alignment: Alignment.center,
-          children: [
+          children: <Widget> [
             Arc.draw(
               strokeWidth: strokeWidth,
               size: size,
@@ -55,14 +57,18 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
             Visibility(
               visible: _animationController.value <= 0.9,
               child: Transform.translate(
-                offset: Tween(
+                offset: Tween<Offset>(
                   begin: Offset(0, -size),
-                  end: Offset(0, 0),
+                  end: Offset.zero,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.05, 0.4, curve: Curves.easeInCubic),
+                        curve: const Interval(
+                          0.05,
+                          0.4,
+                          curve: Curves.easeInCubic,
+                        ),
                       ),
                     )
                     .value,
@@ -72,29 +78,38 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                   color: color,
                   startAngle: -3 * math.pi / 2,
                   // endAngle: math.pi / (size * size),
-                  endAngle:
-                      Tween(begin: math.pi / (size * size), end: math.pi / 1.13)
-                          .animate(
-                            CurvedAnimation(
-                              parent: _animationController,
-                              curve: Interval(0.38, 0.9),
-                            ),
-                          )
-                          .value,
+                  endAngle: Tween<double>(
+                    begin: math.pi / (size * size),
+                    end: math.pi / 1.13,
+                  )
+                      .animate(
+                        CurvedAnimation(
+                          parent: _animationController,
+                          curve: const Interval(
+                            0.38,
+                            0.9,
+                          ),
+                        ),
+                      )
+                      .value,
                 ),
               ),
             ),
             Visibility(
               visible: _animationController.value <= 0.9,
               child: Transform.translate(
-                offset: Tween(
+                offset: Tween<Offset>(
                   begin: Offset(0, -size),
-                  end: Offset(0, 0),
+                  end: Offset.zero,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.05, 0.4, curve: Curves.easeInCubic),
+                        curve: const Interval(
+                          0.05,
+                          0.4,
+                          curve: Curves.easeInCubic,
+                        ),
                       ),
                     )
                     .value,
@@ -103,14 +118,17 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                   size: size,
                   color: color,
                   startAngle: -3 * math.pi / 2,
-                  endAngle: Tween(
+                  endAngle: Tween<double>(
                     begin: math.pi / (size * size),
                     end: -math.pi / 1.13,
                   )
                       .animate(
                         CurvedAnimation(
                           parent: _animationController,
-                          curve: Interval(0.38, 0.9),
+                          curve: const Interval(
+                            0.38,
+                            0.9,
+                          ),
                         ),
                       )
                       .value,
@@ -126,14 +144,17 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 size: size,
                 color: color,
                 startAngle: -math.pi / 4,
-                endAngle: Tween(
+                endAngle: Tween<double>(
                   begin: -math.pi / 7.4,
                   end: -math.pi / 4,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.9, 0.96),
+                        curve: const Interval(
+                          0.9,
+                          0.96,
+                        ),
                       ),
                     )
                     .value,
@@ -149,14 +170,17 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 startAngle: -3 * math.pi / 4,
                 // endAngle: math.pi / 4
                 // endAngle: math.pi / 7.4
-                endAngle: Tween(
+                endAngle: Tween<double>(
                   begin: math.pi / 7.4,
                   end: math.pi / 4,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.9, 0.96),
+                        curve: const Interval(
+                          0.9,
+                          0.96,
+                        ),
                       ),
                     )
                     .value,
@@ -172,14 +196,17 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 color: color,
                 startAngle: -math.pi / 3.5,
                 // endAngle: math.pi / 28,
-                endAngle: Tween(
+                endAngle: Tween<double>(
                   begin: math.pi / 1.273,
                   end: math.pi / 28,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.9, 1.0),
+                        curve: const Interval(
+                          0.9,
+                          1.0,
+                        ),
                       ),
                     )
                     .value,
@@ -197,14 +224,17 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 // endAngle: -math.pi / 1.273
                 // endAngle: -math.pi / 27
 
-                endAngle: Tween(
+                endAngle: Tween<double>(
                   begin: -math.pi / 1.273,
                   end: -math.pi / 27,
                 )
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.9, 1.0),
+                        curve: const Interval(
+                          0.9,
+                          1.0,
+                        ),
                       ),
                     )
                     .value,

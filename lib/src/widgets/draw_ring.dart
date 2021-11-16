@@ -8,18 +8,18 @@ class Ring extends CustomPainter {
     this._color,
     this._strokeWidth,
   );
- 
+
   static Widget draw({
-    required Color rippleColor,
+    required Color color,
     required double size,
     required double strokeWidth,
   }) =>
-      Container(
+      SizedBox(
         width: size,
         height: size,
         child: CustomPaint(
           painter: Ring(
-            rippleColor,
+            color,
             strokeWidth,
           ),
         ),

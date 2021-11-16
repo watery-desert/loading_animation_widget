@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/circular_dot.dart';
+import '../widgets/draw_dot.dart';
 
 class HorizontalDotsRotation extends StatefulWidget {
   final double size;
@@ -9,7 +9,7 @@ class HorizontalDotsRotation extends StatefulWidget {
     Key? key,
     required this.size,
     required this.color,
-    this.time = 800,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -101,18 +101,17 @@ class _HorizontalDotsRotationState extends State<HorizontalDotsRotation>
 
     final Color color = widget.color;
     final double dotSize = size / 4;
-    return Container(
+    return SizedBox(
       width: size,
       height: size,
-      // color: Colors.brown,
       child: AnimatedBuilder(
         animation: _animationController,
         builder: (_, __) => Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: <Widget>[
             Transform.translate(
               offset: _leftDotTranslate.value,
-              child: CircularDot(
+              child: DrawDot.circular(
                 dotSize: dotSize,
                 color: color,
               ),
@@ -121,7 +120,7 @@ class _HorizontalDotsRotationState extends State<HorizontalDotsRotation>
               scale: _middleDotScale.value,
               child: Transform.translate(
                 offset: _middleDotTranslate.value,
-                child: CircularDot(
+                child: DrawDot.circular(
                   dotSize: dotSize,
                   color: color,
                 ),
@@ -131,7 +130,7 @@ class _HorizontalDotsRotationState extends State<HorizontalDotsRotation>
               offset: _rightDotTranslate.value,
               child: Transform.scale(
                 scale: _rightDotScale.value,
-                child: CircularDot(
+                child: DrawDot.circular(
                   dotSize: dotSize,
                   color: color,
                 ),

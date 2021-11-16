@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/circular_dot.dart';
+import '../widgets/draw_dot.dart';
 
 class BuildDot extends StatelessWidget {
   final Color color;
@@ -35,10 +35,13 @@ class BuildDot extends StatelessWidget {
       child: Transform.translate(
         offset: Offset(0, -size / 2.4),
         child: UnconstrainedBox(
-          child: CircularDot(
+          child: DrawDot.circular(
             color: color,
             dotSize: first
-                ? Tween<double>(begin: 0.0, end: size/ 6)
+                ? Tween<double>(
+                    begin: 0.0,
+                    end: size / 6,
+                  )
                     .animate(
                       CurvedAnimation(
                         parent: controller,
@@ -46,7 +49,10 @@ class BuildDot extends StatelessWidget {
                       ),
                     )
                     .value
-                : Tween<double>(begin: size / 6, end: 0.0)
+                : Tween<double>(
+                    begin: size / 6,
+                    end: 0.0,
+                  )
                     .animate(
                       CurvedAnimation(
                         parent: controller,

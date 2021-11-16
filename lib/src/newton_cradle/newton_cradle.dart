@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/circular_dot.dart';
+import '../widgets/draw_dot.dart';
 import 'swivel_dot.dart';
 
 class NewtonCradle extends StatefulWidget {
@@ -11,7 +11,7 @@ class NewtonCradle extends StatefulWidget {
     Key? key,
     required this.size,
     required this.color,
-    this.time = 1200,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -39,13 +39,12 @@ class _NewtonCradleState extends State<NewtonCradle>
     final Color color = widget.color;
     return AnimatedBuilder(
       animation: _animationController,
-      builder: (_, __) => Container(
+      builder: (_, __) => SizedBox(
         width: widget.size,
         height: widget.size,
-        // color: Colors.brown,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             SwivelDot.left(
               color: color,
               controller: _animationController,
@@ -56,11 +55,11 @@ class _NewtonCradleState extends State<NewtonCradle>
               thirdInterval: 0.30,
               fourthInterval: 0.50,
             ),
-            CircularDot(
+            DrawDot.circular(
               dotSize: dotSize,
               color: color,
             ),
-            CircularDot(
+            DrawDot.circular(
               dotSize: dotSize,
               color: color,
             ),

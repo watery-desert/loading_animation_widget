@@ -12,7 +12,7 @@ class StretchedDots extends StatefulWidget {
     Key? key,
     required this.size,
     required this.color,
-    this.time = 2000,
+    required this.time,
   })  : innerHeight = size / 1.3,
         dotWidth = size / 8,
         super(key: key);
@@ -45,20 +45,19 @@ class _StretchedDotsState extends State<StretchedDots>
     return AnimatedBuilder(
       animation: _animationController,
       builder: (_, __) => Container(
-        // color: Colors.red,
         width: size,
         height: size,
         alignment: Alignment.center,
-        child: Container(
+        child: SizedBox(
           // color: Colors.amber,
           height: innerHeight,
           child: Stack(
             fit: StackFit.expand,
-            children: [
+            children: <Widget> [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   BuildDot(
                     controller: _animationController,
                     innerHeight: innerHeight,

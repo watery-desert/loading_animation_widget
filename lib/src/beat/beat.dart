@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../beat/draw_ring.dart';
+import '../widgets/draw_ring.dart';
 
 class Beat extends StatefulWidget {
   final double size;
@@ -11,9 +11,8 @@ class Beat extends StatefulWidget {
     required this.color,
     required this.size,
     required this.time,
-  }) : 
-  assert (time > 0, 'Duration must greater than 0'),
-  super(key: key);
+  })  : assert(time > 0, 'Duration must greater than 0'),
+        super(key: key);
 
   @override
   _BeatState createState() => _BeatState();
@@ -35,8 +34,8 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final size = widget.size;
-    final color = widget.color;
+    final double size = widget.size;
+    final Color color = widget.color;
     return SizedBox(
       width: size,
       height: size,
@@ -44,35 +43,39 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
         animation: _animationController,
         builder: (_, __) => Stack(
           alignment: Alignment.center,
-          children: [
+          children:<Widget> [
             Visibility(
               visible: _animationController.value <= 0.7,
               child: Transform.scale(
-                scale: Tween(begin: 0.15, end: 1.0)
+                scale: Tween<double>(begin: 0.15, end: 1.0)
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.0, 0.7, curve: Curves.easeInCubic),
+                        curve: const Interval(
+                          0.0,
+                          0.7,
+                          curve: Curves.easeInCubic,
+                        ),
                       ),
                     )
                     .value,
                 child: Opacity(
-                  opacity: Tween(begin: 0.0, end: 1.0)
+                  opacity: Tween <double>(begin: 0.0, end: 1.0)
                       .animate(
                         CurvedAnimation(
                           parent: _animationController,
-                          curve: Interval(0.0, 0.2),
+                          curve: const Interval(0.0, 0.2),
                         ),
                       )
                       .value,
                   child: Ring.draw(
-                    rippleColor: color,
+                    color: color,
                     size: size,
-                    strokeWidth: Tween(begin: size / 5, end: size / 8)
+                    strokeWidth: Tween <double>(begin: size / 5, end: size / 8)
                         .animate(
                           CurvedAnimation(
                             parent: _animationController,
-                            curve: Interval(0.0, 0.7),
+                            curve: const Interval(0.0, 0.7),
                           ),
                         )
                         .value,
@@ -83,7 +86,7 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
             Visibility(
               visible: _animationController.value <= 0.7,
               child: Ring.draw(
-                rippleColor: color,
+                color: color,
                 size: size,
                 strokeWidth: size / 8,
               ),
@@ -92,16 +95,19 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
               visible: _animationController.value <= 0.8 &&
                   _animationController.value >= 0.7,
               child: Transform.scale(
-                scale: Tween(begin: 1.0, end: 1.15)
+                scale: Tween<double>(begin: 1.0, end: 1.15)
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.7, 0.8),
+                        curve: const Interval(
+                          0.7,
+                          0.8,
+                        ),
                       ),
                     )
                     .value,
                 child: Ring.draw(
-                  rippleColor: color,
+                  color: color,
                   size: size,
                   strokeWidth: size / 8,
                 ),
@@ -110,16 +116,19 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
             Visibility(
               visible: _animationController.value >= 0.8,
               child: Transform.scale(
-                scale: Tween(begin: 1.15, end: 1.0)
+                scale: Tween<double>(begin: 1.15, end: 1.0)
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(0.8, 0.9),
+                        curve: const Interval(
+                          0.8,
+                          0.9,
+                        ),
                       ),
                     )
                     .value,
                 child: Ring.draw(
-                  rippleColor: color,
+                  color: color,
                   size: size,
                   strokeWidth: size / 8,
                 ),

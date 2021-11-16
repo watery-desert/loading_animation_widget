@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import '../widgets/circular_dot.dart';
-
+import '../widgets/draw_dot.dart';
 
 class SwivelDot extends StatelessWidget {
   final double dotSize;
@@ -42,12 +41,10 @@ class SwivelDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final double startInterval = interval.begin;
-    // final double middleInterval = (interval.begin + interval.end) / 2;
-    // final double endInterval = interval.end;
-    final Cubic curve = Curves.easeOutSine;
+
+    // final Cubic curve = Curves.easeOutSine;
     return Stack(
-      children: [
+      children:<Widget> [
         Visibility(
           visible: controller.value <= thirdInterval,
           child: Transform.rotate(
@@ -67,7 +64,7 @@ class SwivelDot extends StatelessWidget {
                   ),
                 )
                 .value,
-            child: CircularDot(
+            child: DrawDot.circular(
               color: color,
               dotSize: dotSize,
             ),
@@ -92,7 +89,7 @@ class SwivelDot extends StatelessWidget {
                   ),
                 )
                 .value,
-            child: CircularDot(
+            child: DrawDot.circular(
               color: color,
               dotSize: dotSize,
             ),

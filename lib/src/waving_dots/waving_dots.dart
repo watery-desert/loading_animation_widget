@@ -9,7 +9,7 @@ class WavingDots extends StatefulWidget {
     Key? key,
     required this.size,
     required this.color,
-    this.time = 1200,
+    required this.time,
   }) : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class _WavingDotsState extends State<WavingDots>
           required Offset end,
           required Interval interval}) =>
       Transform.translate(
-        offset: Tween(begin: begin, end: end)
+        offset: Tween<Offset>(begin: begin, end: end)
             .animate(
               CurvedAnimation(
                 parent: _controller,
@@ -80,10 +80,10 @@ class _WavingDotsState extends State<WavingDots>
         height: size,
         child: Stack(
           alignment: Alignment.center,
-          children: [
+          children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 _controller.value <= 0.50
                     ? _buildBottomDot(begin: 0.12, end: 0.50)
                     : _buildTopDot(begin: 0.62, end: 1.0),

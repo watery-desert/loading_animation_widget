@@ -18,27 +18,103 @@ import 'src/staggered_wave/staggered_wave.dart';
 import 'src/stretched_dots/stretched_dots.dart';
 import 'src/waving_dots/waving_dots.dart';
 
+import 'src/bouncing_ball/bouncing_ball.dart';
+import 'src/arch_circle/arch_circle.dart';
+import 'src/prograssive_dots/prograssive_dots.dart';
+import 'src/four_rotating_dots/four_rotating_dots.dart';
+import 'src/falling_dot/falling_dot.dart';
 
 class LoadingAnimationWidget {
   LoadingAnimationWidget._();
 
-
-
-  static Widget flickr({
-    /// Color of the widget
-    required List<Color> colors,
+  /// A ball falls inside a ring cut out when face up and falls when face down.
+  static Widget fallingDot({
+    required Color color,
     required double size,
-    int time = 2000,
+    int time = 1500,
   }) {
-    return Flickr(
-      colors: colors,
+    return FallingDot(
+      color: color,
       size: size,
       time: time,
     );
   }
 
-   static Widget hexagonDots({
-    /// Color of the widget
+  static Widget fourRotatingDots({
+    required Color color,
+    required double size,
+    int time = 2200,
+  }) {
+    return FourRotatingDots(
+      color: color,
+      size: size,
+      time: time,
+    );
+  }
+
+  static Widget prograssiveDots({
+    required Color color,
+    required double size,
+    int time = 800,
+  }) {
+    return PrograssiveDots(
+      color: color,
+      size: size,
+      time: time,
+    );
+  }
+
+  static Widget discreteCircle({
+    required Color color,
+    required double size,
+    int time = 2000,
+  }) {
+    return DiscreteCircle(
+      color: color,
+      size: size,
+      time: time,
+    );
+  }
+
+  static Widget archCircle({
+    required Color color,
+    required double size,
+    int time = 2000,
+  }) {
+    return ArchCircle(
+      color: color,
+      size: size,
+      time: time,
+    );
+  }
+
+  static Widget bouncingBall({
+    required Color color,
+    required double size,
+    int time = 1200,
+  }) {
+    return BouncingBall(
+      color: color,
+      size: size,
+      time: time,
+    );
+  }
+
+  static Widget flickr({
+    required Color leftDotColor,
+    required Color rightDotColor,
+    required double size,
+    int time = 2000,
+  }) {
+    return Flickr(
+      leftDotColor: leftDotColor,
+      rightDotColor: rightDotColor,
+      size: size,
+      time: time,
+    );
+  }
+
+  static Widget hexagonDots({
     required Color color,
     required double size,
     int time = 3000,
@@ -63,20 +139,7 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget discreteCircle({
-    required Color color,
-    required double size,
-    int time = 2000,
-  }) {
-    return DiscreteCircle(
-      color: color,
-      size: size,
-      time: time,
-    );
-  }
-
   static Widget dotsTriangle({
-    /// Color of the widget
     required Color color,
     required double size,
     int time = 1200,
@@ -89,7 +152,6 @@ class LoadingAnimationWidget {
   }
 
   static Widget halfTringleDot({
-    /// Color of the widget
     required Color color,
     required double size,
     int time = 3000,
@@ -101,10 +163,7 @@ class LoadingAnimationWidget {
     );
   }
 
- 
-
   static Widget elementalLoader({
-    /// Color of the widget
     required Color color,
     required double size,
     int time = 1500,
@@ -116,96 +175,89 @@ class LoadingAnimationWidget {
     );
   }
 
-
-
   static Widget horizontalDotsRotation({
-    /// Color of the widget
     required Color color,
     required double size,
-    int time = 3000,
+    int time = 800,
   }) {
     return HorizontalDotsRotation(
       color: color,
       size: size,
-      // time: time,
+      time: time,
     );
   }
 
   static Widget newtonCradle({
-    /// Color of the widget
     required Color color,
     required double size,
-    int time = 3000,
+    int time = 1200,
   }) {
     return NewtonCradle(
       color: color,
       size: size,
-      // time: time,
+      time: time,
     );
   }
 
   static Widget inkDrop({
-    /// Color of the widget
     required Color color,
     required double size,
-    int time = 3000,
+    int time = 1400,
   }) {
     return InkDrop(
       color: color,
       size: size,
-      // time: time,
+      time: time,
     );
   }
 
   static Widget preloader({
-    /// Color of the widget
-    required List<Color> colors,
+    required Color leftDotColor,
+    required Color rightDotColor,
     required double size,
     int time = 3000,
   }) {
     return Preloader(
-      colors: colors,
+      leftDotColor: leftDotColor,
+      rightDotColor: rightDotColor,
       size: size,
       time: time,
     );
   }
 
   static Widget staggeredDotWave({
-    /// Color of the widget
     required Color color,
     required double size,
-    int time = 3000,
+    int time = 1600,
   }) {
     return StaggeredDotWave(
       color: color,
       size: size,
-      // time: time,
+      time: time,
     );
   }
 
   static Widget stretchedDots({
-    /// Color of the widget
     required Color color,
     required double size,
-    int time = 3000,
+    int time = 2000,
   }) {
     return StretchedDots(
       color: color,
       size: size,
-      // time: time,
+      time: time,
     );
   }
 
   static Widget wavingDots({
-    /// Color of the widget
     required Color color,
     required double size,
-    int time = 3000,
+    int time = 1200,
   }) {
     return WavingDots(
       color: color,
       size: size,
-      // time: time,
+      time: time,
     );
   }
 

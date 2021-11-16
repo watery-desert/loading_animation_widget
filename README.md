@@ -15,6 +15,11 @@
 11. [HalfTringleDot](https://dribbble.com/shots/5878367-Loaders)
 12. [DiscreteCircular](https://dribbble.com/shots/7888464-Spinner)
 13. [beat](https://www.behance.net/gallery/58535057/Loader)
+14. [bouncingBall](https://dribbble.com/shots/2379959-Bouncy-Ball)
+15. [archCircle](https://dribbble.com/shots/5095383-Loader-Animation)
+16. [fourRotatingDots](https://codepen.io/rbv912/pen/dYbqLQ?editors=0100)
+17. [fallingDot](https://codepen.io/rbv912/pen/dYbqLQ?editors=0100)
+18. [progressiveDots](https://dribbble.com/shots/5790156-Focus-Reactive)
 
 
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Arc extends CustomPainter {
   final Color _color;
   final double _strokeWidth;
@@ -36,7 +35,7 @@ class Arc extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final rect = Rect.fromCircle(
+    final Rect rect = Rect.fromCircle(
       center: Offset(size.width / 2, size.height / 2),
       radius: size.height / 2,
     );

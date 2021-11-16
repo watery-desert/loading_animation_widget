@@ -1,17 +1,17 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class Flickr extends StatefulWidget {
-  final List<Color> colors;
+  final Color leftDotColor;
+  final Color rightDotColor;
   final double size;
   final int time;
   const Flickr({
     Key? key,
-    required this.colors,
+    required this.leftDotColor,
+    required this.rightDotColor,
     required this.size,
     required this.time,
-  })  : assert(colors.length == 2),
+  })  : assert(time >= 200),
         super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class Flickr extends StatefulWidget {
 
 class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-  final curves = Curves.ease;
+  final Cubic curves = Curves.ease;
   @override
   void initState() {
     super.initState();
@@ -32,48 +32,48 @@ class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final size = widget.size;
-    final colors = widget.colors;
+    final double size = widget.size;
+    final Color leftDotColor = widget.leftDotColor;
+    final Color rightDotColor = widget.rightDotColor;
 
-    return Container(
-      // color: Colors.green,
+    return SizedBox(
       width: size,
       height: size,
       child: AnimatedBuilder(
         animation: _animationController,
         builder: (_, __) => Stack(
           alignment: Alignment.center,
-          children: [
-            Disk(
+          children: <Widget>[
+            _BuildDot(
               size: size / 2,
-              color: colors[0],
+              color: leftDotColor,
               initialOffset: Offset(-size / 4, 0),
               finalOffset: Offset(size / 4, 0),
               interval: Interval(0.0, 0.5, curve: curves),
               controller: _animationController,
               visibility: _animationController.value <= 0.5,
             ),
-            Disk(
+            _BuildDot(
               size: size / 2,
-              color: colors[1],
+              color: rightDotColor,
               initialOffset: Offset(size / 4, 0),
               finalOffset: Offset(-size / 4, 0),
               interval: Interval(0.0, 0.5, curve: curves),
               visibility: _animationController.value <= 0.5,
               controller: _animationController,
             ),
-            Disk(
+            _BuildDot(
               size: size / 2,
-              color: colors[1],
+              color: rightDotColor,
               initialOffset: Offset(-size / 4, 0),
               finalOffset: Offset(size / 4, 0),
               controller: _animationController,
               interval: Interval(0.5, 1.0, curve: curves),
               visibility: _animationController.value >= 0.5,
             ),
-            Disk(
+            _BuildDot(
               size: size / 2,
-              color: colors[0],
+              color: leftDotColor,
               initialOffset: Offset(size / 4, 0),
               finalOffset: Offset(-size / 4, 0),
               controller: _animationController,
@@ -93,7 +93,7 @@ class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
   }
 }
 
-class Disk extends StatelessWidget {
+class _BuildDot extends StatelessWidget {
   final double size;
   final Color color;
   final Offset initialOffset;
@@ -102,7 +102,7 @@ class Disk extends StatelessWidget {
   final bool visibility;
   final AnimationController controller;
 
-  const Disk({
+  const _BuildDot({
     Key? key,
     required this.size,
     required this.color,
@@ -115,7 +115,10 @@ class Disk extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final offsetAnimation = Tween(begin: initialOffset, end: finalOffset)
+    final Offset offsetAnimation = Tween<Offset>(
+      begin: initialOffset,
+      end: finalOffset,
+    )
         .animate(
           CurvedAnimation(parent: controller, curve: interval),
         )

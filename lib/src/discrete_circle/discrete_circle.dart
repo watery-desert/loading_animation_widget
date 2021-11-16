@@ -32,16 +32,14 @@ class _DiscreteCircleState extends State<DiscreteCircle>
 
   @override
   Widget build(BuildContext context) {
-    final testValue = 0.48;
     final Color color = widget.color;
     final double size = widget.size;
     final double strokeWidth = size / 8;
-    // const Cubic curve = Curves.easeInQuad;
     return AnimatedBuilder(
       animation: _animationController,
-      builder: (context, child) {
+      builder: (_, __) {
         return Stack(
-          children: [
+          children:<Widget> [
             Transform.rotate(
               angle: Tween<double>(begin: 0, end: 2 * math.pi)
                   .animate(
@@ -50,7 +48,7 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                       curve: const Interval(
                         0.68,
                         0.95,
-                        // curve: Curves.easeOut,
+                        curve: Curves.easeOut,
                       ),
                     ),
                   )
@@ -62,7 +60,6 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                   size: size,
                   strokeWidth: strokeWidth,
                   startAngle: -math.pi / 2,
-                  // endAngle: math.pi / 2,
                   endAngle: Tween<double>(
                     begin: math.pi / 2,
                     end: math.pi / (size * size),
@@ -73,7 +70,7 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                           curve: const Interval(
                             0.7,
                             0.95,
-                            // curve: Curves.easeOut,
+                            curve: Curves.easeOutSine,
                           ),
                         ),
                       )
@@ -88,7 +85,6 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                 size: size,
                 strokeWidth: strokeWidth,
                 startAngle: -math.pi / 2,
-                // endAngle: -math.pi
                 endAngle: Tween<double>(
                   begin: -2 * math.pi,
                   end: math.pi / (size * size),
@@ -99,6 +95,7 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                         curve: const Interval(
                           0.6,
                           0.95,
+                          // curve: Curves.easeIn,
                           curve: Curves.easeOutSine,
                         ),
                       ),
@@ -106,7 +103,6 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                     .value,
               ),
             ),
-
             Visibility(
               visible: _animationController.value <= 0.5,
               // visible: true,
@@ -115,8 +111,8 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                     .animate(
                       CurvedAnimation(
                         parent: _animationController,
-                        curve: Interval(
-                          testValue,
+                        curve: const Interval(
+                          0.48,
                           0.5,
                         ),
                       ),
@@ -133,9 +129,9 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                       .animate(
                         CurvedAnimation(
                           parent: _animationController,
-                          curve: Interval(
+                          curve: const Interval(
                             0.05,
-                            testValue,
+                            0.48,
                             curve: Curves.easeOutSine,
                           ),
                         ),
@@ -170,13 +166,6 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                     .value,
               ),
             ),
-            // Arc.draw(
-            //   color: Colors.black.withOpacity(0.1),
-            //   size: size,
-            //   strokeWidth: strokeWidth,
-            //   startAngle: -math.pi / 2,
-            //   endAngle: math.pi / (size * size),
-            // ),
           ],
         );
       },
