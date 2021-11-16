@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../widgets/draw_arc.dart';
 import 'dart:math' as math;
 
-class ElementalLoader extends StatefulWidget {
+class TwoRotatingArc extends StatefulWidget {
   final double size;
   final Color color;
   final int time;
-  const ElementalLoader({
+  const TwoRotatingArc({
     Key? key,
     required this.color,
     required this.size,
@@ -14,10 +14,10 @@ class ElementalLoader extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ElementalLoaderState createState() => _ElementalLoaderState();
+  _TwoRotatingArcState createState() => _TwoRotatingArcState();
 }
 
-class _ElementalLoaderState extends State<ElementalLoader>
+class _TwoRotatingArcState extends State<TwoRotatingArc>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

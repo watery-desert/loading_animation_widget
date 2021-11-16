@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
 
-class DotsInOut extends StatefulWidget {
+class ThreeRotatingDots extends StatefulWidget {
   final double size;
   final Color color;
   final int time;
-  const DotsInOut({
+  const ThreeRotatingDots({
     Key? key,
     required this.color,
     required this.size,
@@ -14,10 +14,10 @@ class DotsInOut extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DotsInOutState createState() => _DotsInOutState();
+  _ThreeRotatingDotsState createState() => _ThreeRotatingDotsState();
 }
 
-class _DotsInOutState extends State<DotsInOut>
+class _ThreeRotatingDotsState extends State<ThreeRotatingDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

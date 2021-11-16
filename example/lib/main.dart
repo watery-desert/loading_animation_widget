@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 const Color _kAppColor = Color(0xFFFDDE6F);
+// #1A1A3F
 void main() {
   runApp(const MyApp());
 }
@@ -100,10 +101,6 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: Center(
                       child: appBody.widget,
-                      // child: Transform.scale(
-                      //   scale: 4,
-                      //   child: CircularProgressIndicator(),
-                      // ),
                     ),
                   ),
                 ],
@@ -153,8 +150,30 @@ final listOfAnimations = <AppBody>[
     const Text('Initial'),
   ),
   AppBody(
+    'wavingDots',
+    LoadingAnimationWidget.wavingDots(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
     'inkDrop',
     LoadingAnimationWidget.inkDrop(
+      color: Colors.white,
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'twistingDots',
+    LoadingAnimationWidget.twistingDots(
+      leftDotColor: const Color(0xFF1A1A3F),
+      rightDotColor: const Color(0xFFEA3799),
+      size: 100,
+    ),
+  ),
+  AppBody(
+    'threeRotatingDots',
+    LoadingAnimationWidget.threeRotatingDots(
       color: Colors.white,
       size: 100,
     ),
@@ -181,13 +200,6 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'wavingDots',
-    LoadingAnimationWidget.wavingDots(
-      color: Colors.white,
-      size: 100,
-    ),
-  ),
-  AppBody(
     'prograssiveDots',
     LoadingAnimationWidget.prograssiveDots(
       color: Colors.white,
@@ -195,17 +207,17 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'discrete circle',
+    'discreteCircle',
     LoadingAnimationWidget.discreteCircle(
       color: Colors.white,
       size: 100,
     ),
   ),
   AppBody(
-    'archCircle',
-    LoadingAnimationWidget.archCircle(
+    'threeArchedCircle',
+    LoadingAnimationWidget.threeArchedCircle(
       color: Colors.white,
-      size: 200,
+      size: 100,
     ),
   ),
   AppBody(
@@ -231,13 +243,6 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'dotsInOut',
-    LoadingAnimationWidget.dotsInOut(
-      color: Colors.white,
-      size: 100,
-    ),
-  ),
-  AppBody(
     'beat',
     LoadingAnimationWidget.beat(
       color: Colors.white,
@@ -245,15 +250,15 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'elementalLoader',
-    LoadingAnimationWidget.elementalLoader(
+    'twoRotatingArc',
+    LoadingAnimationWidget.twoRotatingArc(
       color: Colors.white,
       size: 100,
     ),
   ),
   AppBody(
     'horizontalDotsRotation',
-    LoadingAnimationWidget.horizontalDotsRotation(
+    LoadingAnimationWidget.threeHorizontalDots(
       color: Colors.white,
       size: 100,
     ),
@@ -263,14 +268,6 @@ final listOfAnimations = <AppBody>[
     LoadingAnimationWidget.newtonCradle(
       color: Colors.white,
       size: 200,
-    ),
-  ),
-  AppBody(
-    'preloader',
-    LoadingAnimationWidget.preloader(
-      leftDotColor: const Color(0xFF0063DC),
-      rightDotColor: const Color(0xFFFF0084),
-      size: 100,
     ),
   ),
   AppBody(

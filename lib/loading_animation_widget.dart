@@ -1,7 +1,7 @@
 library loading_animation_widget;
 
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/src/dots_in_out/dots_in_out.dart';
+
 import 'src/beat/beat.dart';
 import 'src/discrete_circle/discrete_circle.dart';
 import 'src/triangle_dots/triangle_dots.dart';
@@ -23,6 +23,7 @@ import 'src/arch_circle/arch_circle.dart';
 import 'src/prograssive_dots/prograssive_dots.dart';
 import 'src/four_rotating_dots/four_rotating_dots.dart';
 import 'src/falling_dot/falling_dot.dart';
+import 'src/three_rotating_dots/three_rotating_dots.dart';
 
 class LoadingAnimationWidget {
   LoadingAnimationWidget._();
@@ -76,12 +77,12 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget archCircle({
+  static Widget threeArchedCircle({
     required Color color,
     required double size,
     int time = 2000,
   }) {
-    return ArchCircle(
+    return ThreeArchedCircle(
       color: color,
       size: size,
       time: time,
@@ -163,24 +164,24 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget elementalLoader({
+  static Widget twoRotatingArc({
     required Color color,
     required double size,
     int time = 1500,
   }) {
-    return ElementalLoader(
+    return TwoRotatingArc(
       color: color,
       size: size,
       time: time,
     );
   }
 
-  static Widget horizontalDotsRotation({
+  static Widget threeHorizontalDots({
     required Color color,
     required double size,
     int time = 800,
   }) {
-    return HorizontalDotsRotation(
+    return ThreeHorizontalDots(
       color: color,
       size: size,
       time: time,
@@ -211,13 +212,13 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget preloader({
+  static Widget twistingDots({
     required Color leftDotColor,
     required Color rightDotColor,
     required double size,
     int time = 3000,
   }) {
-    return Preloader(
+    return TwistingDots(
       leftDotColor: leftDotColor,
       rightDotColor: rightDotColor,
       size: size,
@@ -261,12 +262,12 @@ class LoadingAnimationWidget {
     );
   }
 
-  static Widget dotsInOut({
+  static Widget threeRotatingDots({
     required Color color,
     required double size,
     int time = 2000,
   }) {
-    return DotsInOut(
+    return ThreeRotatingDots(
       color: color,
       size: size,
       time: time,

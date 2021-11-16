@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
 
-class Preloader extends StatefulWidget {
+class TwistingDots extends StatefulWidget {
   final double size;
   final Color leftDotColor;
   final Color rightDotColor;
   final int time;
 
-  const Preloader({
+  const TwistingDots({
     Key? key,
     required this.size,
     required this.leftDotColor,
@@ -17,10 +17,10 @@ class Preloader extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _PreloaderState createState() => _PreloaderState();
+  _TwistingDotsState createState() => _TwistingDotsState();
 }
 
-class _PreloaderState extends State<Preloader>
+class _TwistingDotsState extends State<TwistingDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

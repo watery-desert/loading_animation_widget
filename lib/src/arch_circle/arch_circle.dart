@@ -5,11 +5,11 @@ import 'dart:math' as math;
 const double _kGapAngle = math.pi / 12;
 const double _kMinAngle = math.pi / 36;
 
-class ArchCircle extends StatefulWidget {
+class ThreeArchedCircle extends StatefulWidget {
   final double size;
   final Color color;
   final int time;
-  const ArchCircle({
+  const ThreeArchedCircle({
     Key? key,
     required this.color,
     required this.size,
@@ -17,10 +17,10 @@ class ArchCircle extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<ArchCircle> createState() => _ArchCircleState();
+  State<ThreeArchedCircle> createState() => _ThreeArchedCircleState();
 }
 
-class _ArchCircleState extends State<ArchCircle>
+class _ThreeArchedCircleState extends State<ThreeArchedCircle>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
