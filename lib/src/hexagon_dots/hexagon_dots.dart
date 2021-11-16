@@ -68,49 +68,81 @@ class _BuildSpinnerState extends State<HexagonDots>
     const double angle300 = 5 * math.pi / 3;
 
     return Center(
-        child: AnimatedBuilder(
-      animation: _animationController,
-      builder: (_, __) => SizedBox(
-        width: widget.size,
-        height: widget.size,
-        child: _animationController.value <= 0.28
-            ? Stack(
-                alignment: Alignment.center,
-                children: <Widget> [
-                  _buildInitialDot(0 + angle30, const Interval(0, 0.08)),
-                  _buildInitialDot(
-                      angle60 + angle30, const Interval(0.04, 0.12)),
-                  _buildInitialDot(
-                      angle120 + angle30, const Interval(0.08, 0.16)),
-                  _buildInitialDot(
-                      angle180 + angle30, const Interval(0.12, 0.20)),
-                  _buildInitialDot(
-                      angle240 + angle30, const Interval(0.16, 0.24)),
-                  _buildInitialDot(
-                      angle300 + angle30, const Interval(0.20, 0.28)),
-                ],
-              )
-            : Transform.rotate(
-                angle: _rotationAnimation.value,
-                child: Stack(
+      child: AnimatedBuilder(
+        animation: _animationController,
+        builder: (_, __) => SizedBox(
+          width: widget.size,
+          height: widget.size,
+          child: _animationController.value <= 0.28
+              ? Stack(
                   alignment: Alignment.center,
-                  children: <Widget> [
-                    _buildLaterDot(0 + angle30, const Interval(0.80, 0.88)),
-                    _buildLaterDot(
-                        angle60 + angle30, const Interval(0.76, 0.84)),
-                    _buildLaterDot(
-                        angle120 + angle30, const Interval(0.72, 0.80)),
-                    _buildLaterDot(
-                        angle180 + angle30, const Interval(0.68, 0.76)),
-                    _buildLaterDot(
-                        angle240 + angle30, const Interval(0.64, 0.72)),
-                    _buildLaterDot(
-                        angle300 + angle30, const Interval(0.60, 0.68)),
+                  children: <Widget>[
+                    _buildInitialDot(0 + angle30, const Interval(0, 0.08)),
+                    _buildInitialDot(
+                        angle60 + angle30, const Interval(0.04, 0.12)),
+                    _buildInitialDot(
+                        angle120 + angle30, const Interval(0.08, 0.16)),
+                    _buildInitialDot(
+                        angle180 + angle30, const Interval(0.12, 0.20)),
+                    _buildInitialDot(
+                        angle240 + angle30, const Interval(0.16, 0.24)),
+                    _buildInitialDot(
+                        angle300 + angle30, const Interval(0.20, 0.28)),
                   ],
+                )
+              : Transform.rotate(
+                  angle: _rotationAnimation.value,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      _buildLaterDot(
+                        0 + angle30,
+                        const Interval(
+                          0.80,
+                          0.88,
+                        ),
+                      ),
+                      _buildLaterDot(
+                        angle60 + angle30,
+                        const Interval(
+                          0.76,
+                          0.84,
+                        ),
+                      ),
+                      _buildLaterDot(
+                        angle120 + angle30,
+                        const Interval(
+                          0.72,
+                          0.80,
+                        ),
+                      ),
+                      _buildLaterDot(
+                        angle180 + angle30,
+                        const Interval(
+                          0.68,
+                          0.76,
+                        ),
+                      ),
+                      _buildLaterDot(
+                        angle240 + angle30,
+                        const Interval(
+                          0.64,
+                          0.72,
+                        ),
+                      ),
+                      _buildLaterDot(
+                        angle300 + angle30,
+                        const Interval(
+                          0.60,
+                          0.68,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+        ),
       ),
-    ));
+    );
   }
 
   @override

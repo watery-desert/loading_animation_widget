@@ -39,7 +39,7 @@ class _DiscreteCircleState extends State<DiscreteCircle>
       animation: _animationController,
       builder: (_, __) {
         return Stack(
-          children:<Widget> [
+          children: <Widget>[
             Transform.rotate(
               angle: Tween<double>(begin: 0, end: 2 * math.pi)
                   .animate(

@@ -112,7 +112,7 @@ class BuildSides extends StatelessWidget {
       ),
     );
 
-    final List<Widget> children = <Widget> [firstChild, secondChild];
+    final List<Widget> children = <Widget>[firstChild, secondChild];
 
     return Transform.rotate(
       angle: rotationAngle,

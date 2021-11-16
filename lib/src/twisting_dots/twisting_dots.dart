@@ -47,7 +47,7 @@ class _TwistingDotsState extends State<TwistingDots>
         animation: _animationController,
         builder: (_, __) => Stack(
           fit: StackFit.expand,
-          children: <Widget> [
+          children: <Widget>[
             Visibility(
               visible: _animationController.value < 0.5,
               child: Transform.rotate(
@@ -68,7 +68,7 @@ class _TwistingDotsState extends State<TwistingDots>
                     .value,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:<Widget> [
+                  children: <Widget>[
                     DrawDot.circular(
                       dotSize: dotSize,
                       color: firstColor,

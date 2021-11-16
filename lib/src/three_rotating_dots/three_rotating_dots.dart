@@ -58,7 +58,7 @@ class _ThreeRotatingBallsState extends State<ThreeRotatingBalls>
           offset: Offset(0, size / 12),
           child: Stack(
             alignment: Alignment.center,
-            children: <Widget> [
+            children: <Widget>[
               _BuildDot.first(
                 color: color,
                 size: dotSize,

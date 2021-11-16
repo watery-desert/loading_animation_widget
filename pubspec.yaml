@@ -1,10 +1,10 @@
 name: loading_animation_widget
-description: flutter loading animation or spiner whatever you wanna call.
+description: This package contains loading animation or loading spiner or loader. It's usually used to show loading animation when the app is in loading state or something is processing.
 repository: https://github.com/watery-desert/loading_animation_widget
 
 
 
-version: 0.0.1-beta.2
+version: 0.0.1-beta.4
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

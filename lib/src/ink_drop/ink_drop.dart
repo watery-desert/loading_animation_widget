@@ -46,7 +46,7 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
         animation: _animationController,
         builder: (_, __) => Stack(
           alignment: Alignment.center,
-          children: <Widget> [
+          children: <Widget>[
             Arc.draw(
               strokeWidth: strokeWidth,
               size: size,

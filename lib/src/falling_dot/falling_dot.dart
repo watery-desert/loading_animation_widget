@@ -107,7 +107,7 @@ class _FallingDotState extends State<FallingDot>
             width: innerBoxSize,
             child: Stack(
               alignment: Alignment.center,
-              children:<Widget> [
+              children: <Widget>[
                 Visibility(
                   visible: _animationController.value <= 0.5,
                   child: Transform.rotate(

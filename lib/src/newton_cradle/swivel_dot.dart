@@ -41,10 +41,8 @@ class SwivelDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    // final Cubic curve = Curves.easeOutSine;
     return Stack(
-      children:<Widget> [
+      children: <Widget>[
         Visibility(
           visible: controller.value <= thirdInterval,
           child: Transform.rotate(

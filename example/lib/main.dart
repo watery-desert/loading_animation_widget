@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 const Color _kAppColor = Color(0xFFFDDE6F);
-// #1A1A3F
+const double _kSize = 200;
 void main() {
   runApp(const MyApp());
 }
@@ -159,14 +159,14 @@ final listOfAnimations = <AppBody>[
     'wavingDots',
     LoadingAnimationWidget.wavingDots(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'inkDrop',
     LoadingAnimationWidget.inkDrop(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
@@ -174,63 +174,63 @@ final listOfAnimations = <AppBody>[
     LoadingAnimationWidget.twistingDots(
       leftDotColor: const Color(0xFF1A1A3F),
       rightDotColor: const Color(0xFFEA3799),
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'threeRotatingDots',
     LoadingAnimationWidget.threeRotatingBalls(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'staggeredDotWave',
     LoadingAnimationWidget.staggeredDotWave(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'fourRotatingDots',
     LoadingAnimationWidget.fourRotatingDots(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'fallingDot',
     LoadingAnimationWidget.fallingDot(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'prograssiveDots',
     LoadingAnimationWidget.prograssiveDots(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'discreteCircle',
     LoadingAnimationWidget.discreteCircle(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'threeArchedCircle',
     LoadingAnimationWidget.threeArchedCircle(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'bouncingBall',
     LoadingAnimationWidget.bouncingBall(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
@@ -238,63 +238,63 @@ final listOfAnimations = <AppBody>[
     LoadingAnimationWidget.flickr(
       leftDotColor: const Color(0xFF0063DC),
       rightDotColor: const Color(0xFFFF0084),
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'hexagonDots',
     LoadingAnimationWidget.hexagonDots(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'beat',
     LoadingAnimationWidget.beat(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'twoRotatingArc',
     LoadingAnimationWidget.twoRotatingArc(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'horizontalDotsRotation',
     LoadingAnimationWidget.threeHorizontalDots(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'newtonCradle',
     LoadingAnimationWidget.newtonCradle(
       color: Colors.white,
-      size: 200,
+      size: 2 * _kSize,
     ),
   ),
   AppBody(
     'stretchedDots',
     LoadingAnimationWidget.stretchedDots(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'halfTringleDot',
     LoadingAnimationWidget.halfTringleDot(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
   AppBody(
     'dotsTriangle',
     LoadingAnimationWidget.dotsTriangle(
       color: Colors.white,
-      size: 100,
+      size: _kSize,
     ),
   ),
 ];
