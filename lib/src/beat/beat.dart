@@ -43,7 +43,7 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
         animation: _animationController,
         builder: (_, __) => Stack(
           alignment: Alignment.center,
-          children:<Widget> [
+          children: <Widget>[
             Visibility(
               visible: _animationController.value <= 0.7,
               child: Transform.scale(
@@ -60,7 +60,7 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
                     )
                     .value,
                 child: Opacity(
-                  opacity: Tween <double>(begin: 0.0, end: 1.0)
+                  opacity: Tween<double>(begin: 0.0, end: 1.0)
                       .animate(
                         CurvedAnimation(
                           parent: _animationController,
@@ -71,7 +71,7 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
                   child: Ring.draw(
                     color: color,
                     size: size,
-                    strokeWidth: Tween <double>(begin: size / 5, end: size / 8)
+                    strokeWidth: Tween<double>(begin: size / 5, end: size / 8)
                         .animate(
                           CurvedAnimation(
                             parent: _animationController,

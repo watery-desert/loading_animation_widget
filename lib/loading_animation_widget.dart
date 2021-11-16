@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 
 import 'src/beat/beat.dart';
 import 'src/discrete_circle/discrete_circle.dart';
-import 'src/triangle_dots/triangle_dots.dart';
-import 'src/elementry_loader/elemental_loader.dart';
+import 'src/three_rotating_dots/three_rotating_dots.dart';
+import 'src/dots_triangle/dots_triangle.dart';
+import 'src/two_rotating_arc/two_rotating_arc.dart';
 import 'src/hexagon_dots/hexagon_dots.dart';
 import 'src/flickr/flickr.dart';
-import 'src/trangle/trangle.dart';
+import 'src/half_tringle_dot/half_tringle_dot.dart';
 
 import 'src/horizontalDotsRotation/horizontal_dots_rotation.dart';
 import 'src/ink_drop/ink_drop.dart';
 import 'src/newton_cradle/newton_cradle.dart';
-import 'src/preloader/preloader.dart';
+import 'src/twisting_dots/twisting_dots.dart';
 import 'src/staggered_wave/staggered_wave.dart';
 import 'src/stretched_dots/stretched_dots.dart';
 import 'src/waving_dots/waving_dots.dart';
@@ -23,7 +24,6 @@ import 'src/arch_circle/arch_circle.dart';
 import 'src/prograssive_dots/prograssive_dots.dart';
 import 'src/four_rotating_dots/four_rotating_dots.dart';
 import 'src/falling_dot/falling_dot.dart';
-import 'src/three_rotating_dots/three_rotating_dots.dart';
 
 class LoadingAnimationWidget {
   LoadingAnimationWidget._();

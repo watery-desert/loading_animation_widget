@@ -30,7 +30,7 @@ class BuildDot extends StatelessWidget {
     final double height = innerHeight / 1.7;
     return Stack(
       alignment: Alignment.center,
-      children: <Widget> [
+      children: <Widget>[
         controller.value < firstInterval.end
             ? Align(
                 alignment: Alignment.bottomCenter,

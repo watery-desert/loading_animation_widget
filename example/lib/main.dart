@@ -146,8 +146,14 @@ class AppBody {
 
 final listOfAnimations = <AppBody>[
   AppBody(
-    'Initial',
-    const Text('Initial'),
+    'Watery Desert',
+    const Text(
+      'Total animations: 20 \n please give me star \nand follow me on social media',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 18,
+      ),
+    ),
   ),
   AppBody(
     'wavingDots',

@@ -53,7 +53,7 @@ class _StretchedDotsState extends State<StretchedDots>
           height: innerHeight,
           child: Stack(
             fit: StackFit.expand,
-            children: <Widget> [
+            children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,

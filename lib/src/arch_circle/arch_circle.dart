@@ -133,7 +133,7 @@ class _ThreeArchedCircleState extends State<ThreeArchedCircle>
                   ).animate(_secondRotationInterval).value,
                   child: Stack(
                     alignment: Alignment.center,
-                    children:<Widget> [
+                    children: <Widget>[
                       Arc.draw(
                         color: color,
                         size: size,

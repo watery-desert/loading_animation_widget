@@ -89,7 +89,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
             animation: _animationController,
             builder: (_, __) => Stack(
               fit: StackFit.expand,
-              children:<Widget> [
+              children: <Widget>[
                 Visibility(
                   visible: _fistVisibility(_animationController),
                   child: Triangle.draw(
@@ -152,7 +152,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                   width: innerWidth,
                   height: innerHeight,
                   child: Stack(
-                    children:<Widget> [
+                    children: <Widget>[
                       Visibility(
                         visible: _fistVisibility(_animationController),
                         child: Transform.translate(

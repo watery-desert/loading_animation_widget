@@ -107,7 +107,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 
 <details>
-<summary> All packages</summary>
+<summary> All packages by watery desert</summary>
 <br>
 
 ● [Sliding Clipped Nav Bar](https://github.com/watery-desert/sliding_clipped_nav_bar)
