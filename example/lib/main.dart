@@ -173,7 +173,7 @@ final listOfAnimations = <AppBody>[
   ),
   AppBody(
     'threeRotatingDots',
-    LoadingAnimationWidget.threeRotatingDots(
+    LoadingAnimationWidget.threeRotatingBalls(
       color: Colors.white,
       size: 100,
     ),

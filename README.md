@@ -1,5 +1,5 @@
 
-⚠️ This package nowhere ready for use, this is only for public beta test. API may change and also some of the animation may be removed based on the feedback. I am also developing some animations so it's under development.
+⚠️ This package now almost ready you can use it. Make sure some APIs may change.
 
 ### How to install
 
