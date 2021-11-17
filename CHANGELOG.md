@@ -1,11 +1,16 @@
+
+## 0.0.1+1
+- first stable release.
+- updated documentation.
+- add cover.
 ## 0.0.1-beta.4
-- reformated to pass static analysis 
+- reformated to pass static analysis .
 ## 0.0.1-beta.3
 - file names adjusted.
 ## 0.0.1-beta.2
 - added more animations.
 - optimized two old animations.
-- added API doc
+- added API doc.
 - added screen recording.
 ## 0.0.1-beta.1 
 - inital release for public beta test.
