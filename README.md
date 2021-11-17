@@ -1,7 +1,25 @@
+<p align="center">
+<img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/package_cover.png" alt="Loading Animation Widget" />
+</p>
+
+<div align="center">
+
+<a href="https://instagram.com/watery_desert">
+<img src="https://raw.githubusercontent.com/watery-desert/assets/main/social_logo/instagram.png" height="32" alt="instagram: watery_desert"></a>
+
+<a href="https://twitter.com/watery_desert">
+<img src="https://raw.githubusercontent.com/watery-desert/assets/main/social_logo/twitter.png" height="32" alt="twitter: watery_desert"></a>
+
+<a href="https://dribbble.com/watery_desert">
+<img src="https://raw.githubusercontent.com/watery-desert/assets/main/social_logo/dribbble.png" height="32" alt="dribbble: watery_desert"></a>
+
+<a href="https://www.youtube.com/channel/UCMr8V70B4402CNOJEYQ30Qg">
+<img src="https://raw.githubusercontent.com/watery-desert/assets/main/social_logo/youtube.png" height="32" alt="youtube: watery_desert"></a>
+</div>
 
 ⚠️ This package now almost ready you can use it. Make sure some APIs may change.
 
-### How to install
+### How to use
 
 Add `loading_animation_widget:` to your `pubspec.yaml` dependencies then run `flutter pub get`
 
@@ -14,6 +32,31 @@ Then import the package to use
 ```dart 
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 ```
+\
+All loading animation APIs are same straight forward. There is a static method for each animation inside `LoadingAnimationWidget` class, which returns the Object of that animation. Both `size` and `color` are required some animations need more than one color. The optional `time` parameter is in `int` and it's in milliseconds. The default time is most suitable time but you can still change it.
+
+Loading animation with one `color`
+```dart
+Scaffold(
+    body: Center(
+      child: LoadingAnimationWidget.staggeredDotWave(
+        color: Colors.white,
+        size: 200,
+      ),
+    ),
+```              
+
+Loading animation with more than one color. You have to provide both required colors.
+```dart
+Scaffold(
+    body: Center(
+        child: LoadingAnimationWidget.twistingDots(
+          leftDotColor: const Color(0xFF1A1A3F),
+          rightDotColor: const Color(0xFFEA3799),
+          size: 200,
+        ),
+      ),
+```       
 
 ### Design credits with screen recordings
 
@@ -98,16 +141,10 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/dotTrangle.gif"  width="200"/>
 
-
-
-
-
-
-
-
+<br>
 
 <details>
-<summary> All packages by watery desert</summary>
+<summary> All package list</summary>
 <br>
 
 ● [Sliding Clipped Nav Bar](https://github.com/watery-desert/sliding_clipped_nav_bar)
