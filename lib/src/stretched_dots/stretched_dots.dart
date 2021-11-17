@@ -49,7 +49,6 @@ class _StretchedDotsState extends State<StretchedDots>
         height: size,
         alignment: Alignment.center,
         child: SizedBox(
-          // color: Colors.amber,
           height: innerHeight,
           child: Stack(
             fit: StackFit.expand,
@@ -177,30 +176,3 @@ class _StretchedDotsState extends State<StretchedDots>
     super.dispose();
   }
 }
-
-// BuildDot(
-//                     controller: _animationController,
-//                     innerHeight: innerHeight,
-//                     firstOffsetInterval: Interval(
-//                       0.0,
-//                       0.5,
-//                       curve: firstCurve,
-//                     ),
-//                     secondOffsetInterval: Interval(
-//                       0.5,
-//                       1.0,
-//                       curve: seconCurve,
-//                     ),
-//                     firstHeightInterval: Interval(
-//                       0.0,
-//                       0.5,
-//                       curve: firstCurve,
-//                     ),
-//                     secondHeightInterval: Interval(
-//                       0.5,
-//                       1.0,
-//                       curve: seconCurve,
-//                     ),
-//                     dotWidth: dotWidth,
-//                     color: color,
-//                   )

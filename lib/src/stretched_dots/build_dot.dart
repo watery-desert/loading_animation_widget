@@ -35,7 +35,6 @@ class BuildDot extends StatelessWidget {
             ? Align(
                 alignment: Alignment.bottomCenter,
                 child: Transform.translate(
-                  // offset: Offset(0, -offset),
                   offset: Tween<Offset>(
                     begin: Offset.zero,
                     end: Offset(0, -offset),
@@ -52,10 +51,12 @@ class BuildDot extends StatelessWidget {
                     // height: height,
                     color: color,
                     height: Tween<double>(begin: dotWidth, end: height)
-                        .animate(CurvedAnimation(
-                          parent: controller,
-                          curve: firstInterval,
-                        ))
+                        .animate(
+                          CurvedAnimation(
+                            parent: controller,
+                            curve: firstInterval,
+                          ),
+                        )
                         .value,
                   ),
                 ),
@@ -65,7 +66,6 @@ class BuildDot extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Transform.translate(
-                    // offset: Offset(0, offset),
                     offset: Tween<Offset>(
                             begin: Offset(0, offset), end: Offset.zero)
                         .animate(
@@ -133,7 +133,6 @@ class BuildDot extends StatelessWidget {
             : Align(
                 alignment: Alignment.bottomCenter,
                 child: Transform.translate(
-                  // offset: Offset(0, -offset),
                   offset: Tween<Offset>(
                     begin: Offset(0, -offset),
                     end: Offset.zero,
@@ -147,15 +146,16 @@ class BuildDot extends StatelessWidget {
                       .value,
                   child: RoundedRectangle.vertical(
                     width: dotWidth,
-                    // height: height,
                     height: Tween<double>(
                       begin: height,
                       end: dotWidth,
                     )
-                        .animate(CurvedAnimation(
-                          parent: controller,
-                          curve: forthInterval,
-                        ))
+                        .animate(
+                          CurvedAnimation(
+                            parent: controller,
+                            curve: forthInterval,
+                          ),
+                        )
                         .value,
                     color: color,
                   ),
@@ -165,4 +165,3 @@ class BuildDot extends StatelessWidget {
     );
   }
 }
-        // controller.value < firstInterval.end
