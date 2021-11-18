@@ -1,8 +1,10 @@
-
+## 0.0.2+2
+- change screen recording layout to grid.
+- changed description to keep within 180 characters.
 ## 0.0.1+1
 - first stable release.
 - updated documentation.
-- add cover.
+- added cover.
 ## 0.0.1-beta.4
 - reformated to pass static analysis .
 ## 0.0.1-beta.3

@@ -59,11 +59,7 @@ Scaffold(
 
 ## Design credits with screen recordings
 
-<style>
-table, th, td {
-  border: 0 px solid black;
-}
-</style>
+
 <table>
    <tr>
       <td align="center">
