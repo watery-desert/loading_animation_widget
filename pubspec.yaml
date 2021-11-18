@@ -1,5 +1,5 @@
 name: loading_animation_widget
-description: This package contains loading animation or loading spiner or loader. It's usually used to show loading animation when the app is in loading state or something is processing for uncertain time.
+description: Loading animation or loading spiner or loader. It may used to show loading animation when the app is in loading state or something is processing for uncertain time.
 repository: https://github.com/watery-desert/loading_animation_widget
 
 
