@@ -13,9 +13,8 @@
 
 <div align="center">
 
-[![Instagram Badge](https://img.shields.io/badge/-watery_desert-e84393?style=for-the-badge&labelColor=e84393&logo=instagram&logoColor=white)](https://instagram.com/watery_desert)
-[![Twitter Badge](https://img.shields.io/badge/-watery_desert-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/watery_desert)](https://twitter.com/watery_desert)
-[![YouTube Badge](https://img.shields.io/badge/-watery_desert-EA3223?style=for-the-badge&labelColor=EA3223&logo=youtube&logoColor=white)](https://youtube.com/watery_desert)
+[![Instagram Badge](https://img.shields.io/badge/-Instagram-e84393?style=for-the-badge&labelColor=e84393&logo=instagram&logoColor=white)](https://instagram.com/watery_desert)
+[![Twitter Badge](https://img.shields.io/badge/-Twitter-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/watery_desert)](https://twitter.com/watery_desert)
 [![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
 </div>
 
