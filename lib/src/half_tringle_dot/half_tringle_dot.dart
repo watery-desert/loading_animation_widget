@@ -5,10 +5,12 @@ import '../widgets/draw_triangle.dart';
 class HalfTringleDot extends StatefulWidget {
   final double size;
   final Color color;
+  final Color dotColor;
   const HalfTringleDot({
     Key? key,
     required this.size,
     required this.color,
+    required this.dotColor,
   }) : super(key: key);
 
   @override
@@ -41,6 +43,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
   Widget build(BuildContext context) {
     final double size = widget.size;
     final Color color = widget.color;
+    final Color dotColor = widget.dotColor;
     final double innerHeight = 0.74 * size;
     final double innerWidth = 0.87 * size;
     final Cubic curve = Curves.easeOutQuad;
@@ -161,7 +164,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                               .value,
                           child: DrawDot.circular(
                             dotSize: storkeWidth,
-                            color: color,
+                            color: dotColor,
                           ),
                         ),
                       ),
@@ -175,7 +178,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                               .value,
                           child: DrawDot.circular(
                             dotSize: storkeWidth,
-                            color: color,
+                            color: dotColor,
                           ),
                         ),
                       ),
@@ -189,7 +192,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
                               .value,
                           child: DrawDot.circular(
                             dotSize: storkeWidth,
-                            color: color,
+                            color: dotColor,
                           ),
                         ),
                       ),

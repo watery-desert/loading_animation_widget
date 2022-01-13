@@ -181,11 +181,13 @@ class LoadingAnimationWidget {
   /// two sides and the dot.
   static Widget halfTringleDot({
     required Color color,
+    required Color dotColor,
     required double size,
     Key? key,
   }) {
     return HalfTringleDot(
       color: color,
+      dotColor: dotColor,
       size: size,
       key: key,
     );
