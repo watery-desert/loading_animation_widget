@@ -9,8 +9,7 @@ class Beat extends StatefulWidget {
     Key? key,
     required this.color,
     required this.size,
-  })  : 
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _BeatState createState() => _BeatState();

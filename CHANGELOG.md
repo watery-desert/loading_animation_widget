@@ -1,3 +1,5 @@
+## 1.0.0+1
+- Refactored to get 130 pub points 
 ## 1.0.0+0
 - unnecessary time API is now removed.
 - API renamed: 

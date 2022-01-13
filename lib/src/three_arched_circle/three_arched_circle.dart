@@ -12,7 +12,6 @@ class ThreeArchedCircle extends StatefulWidget {
     Key? key,
     required this.color,
     required this.size,
-
   }) : super(key: key);
 
   @override

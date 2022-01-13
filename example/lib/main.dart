@@ -217,11 +217,10 @@ final listOfAnimations = <AppBody>[
   AppBody(
     'discreteCircle',
     LoadingAnimationWidget.discreteCircle(
-      color: Colors.white,
-      size: _kSize,
-      secondRingColor: Colors.black,
-      thirdRingColor: Colors.purple
-    ),
+        color: Colors.white,
+        size: _kSize,
+        secondRingColor: Colors.black,
+        thirdRingColor: Colors.purple),
   ),
   AppBody(
     'threeArchedCircle',
