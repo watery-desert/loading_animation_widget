@@ -50,7 +50,7 @@ void main() {
     tester.verifyTickersWereDisposed();
   });
 
-testWidgets('DiscreteCircle Ticker has been disposed.',
+  testWidgets('DiscreteCircle Ticker has been disposed.',
       (WidgetTester tester) async {
     await tester.pumpWidget(
       baseStructure(const DiscreteCircle(
@@ -116,9 +116,7 @@ testWidgets('DiscreteCircle Ticker has been disposed.',
       (WidgetTester tester) async {
     await tester.pumpWidget(
       baseStructure(const HalfTringleDot(
-        size: _testSize,
-        color: _testColor,
-      )),
+          size: _testSize, color: _testColor, dotColor: _testColor)),
     );
 
     tester.verifyTickersWereDisposed();
