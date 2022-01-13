@@ -1,7 +1,7 @@
 <p align="center">
    <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/package_cover.png" alt="Loading Animation Widget" />
 </p>
-<div align="center">
+<!-- <div align="center">
    <a href="https://instagram.com/watery_desert">
    <img src="https://raw.githubusercontent.com/watery-desert/assets/main/social_logo/instagram.png" height="32" alt="instagram: watery_desert"></a>
    <a href="https://twitter.com/watery_desert">
@@ -9,9 +9,17 @@
    <a href="https://www.youtube.com/channel/UCMr8V70B4402CNOJEYQ30Qg">
    <img src="https://raw.githubusercontent.com/watery-desert/assets/main/social_logo/youtube.png" height="32" alt="youtube: watery_desert"></a>
 </div>
-<br>
+<br> -->
 
-[![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=flat)](https://pub.dev/packages/loading_animation_widget)
+<div align="center">
+
+[![Instagram Badge](https://img.shields.io/badge/-watery_desert-e84393?style=for-the-badge&labelColor=e84393&logo=instagram&logoColor=white)](https://instagram.com/watery_desert)
+[![Twitter Badge](https://img.shields.io/badge/-watery_desert-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/watery_desert)](https://twitter.com/watery_desert)
+[![YouTube Badge](https://img.shields.io/badge/-watery_desert-EA3223?style=for-the-badge&labelColor=EA3223&logo=youtube&logoColor=white)](https://youtube.com/watery_desert)
+[![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
+</div>
+
+
 
 ## **How to use**
 
