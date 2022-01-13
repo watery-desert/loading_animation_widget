@@ -5,12 +5,11 @@ import 'build_dot.dart';
 class HexagonDots extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
+
   const HexagonDots({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -28,7 +27,7 @@ class _BuildSpinnerState extends State<HexagonDots>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 3000),
     )..repeat();
 
     _rotationAnimation = Tween<double>(begin: 0, end: 3 * math.pi / 2).animate(

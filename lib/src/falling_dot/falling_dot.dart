@@ -6,12 +6,11 @@ import '../widgets/draw_arc.dart';
 class FallingDot extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
+
   const FallingDot({
     Key? key,
     required this.color,
     required this.size,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -27,8 +26,8 @@ class _FallingDotState extends State<FallingDot>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(
-        milliseconds: widget.time,
+      duration: const Duration(
+        milliseconds: 1500,
       ),
     )..repeat();
   }

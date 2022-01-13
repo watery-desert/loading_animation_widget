@@ -5,12 +5,10 @@ import 'dart:math' as math;
 class FourRotatingDots extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
   const FourRotatingDots({
     Key? key,
     required this.color,
     required this.size,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -26,8 +24,8 @@ class _FourRotatingDotsState extends State<FourRotatingDots>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(
-        milliseconds: widget.time,
+      duration: const Duration(
+        milliseconds: 2200,
       ),
     )..repeat();
   }

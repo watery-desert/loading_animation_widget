@@ -4,15 +4,13 @@ class Flickr extends StatefulWidget {
   final Color leftDotColor;
   final Color rightDotColor;
   final double size;
-  final int time;
+
   const Flickr({
     Key? key,
     required this.leftDotColor,
     required this.rightDotColor,
     required this.size,
-    required this.time,
-  })  : assert(time >= 200),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _FlickrState createState() => _FlickrState();
@@ -26,7 +24,7 @@ class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 2000),
     )..repeat();
   }
 

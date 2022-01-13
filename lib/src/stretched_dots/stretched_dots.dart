@@ -3,7 +3,7 @@ import 'build_dot.dart';
 
 class StretchedDots extends StatefulWidget {
   final double size;
-  final int time;
+  // final int time;
   final Color color;
   final double innerHeight;
   final double dotWidth;
@@ -12,7 +12,7 @@ class StretchedDots extends StatefulWidget {
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
+    // required this.time,
   })  : innerHeight = size / 1.3,
         dotWidth = size / 8,
         super(key: key);
@@ -30,7 +30,7 @@ class _StretchedDotsState extends State<StretchedDots>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 2000),
     )..repeat();
   }
 

@@ -6,12 +6,11 @@ class InkDrop extends StatefulWidget {
   final double size;
   final Color color;
   final Color ringColor;
-  final int time;
+
   const InkDrop({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
     this.ringColor = const Color(0x1A000000),
   }) : super(key: key);
 
@@ -27,9 +26,7 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(
-        milliseconds: widget.time,
-      ),
+      duration: const Duration(milliseconds: 1400),
     )..repeat();
   }
 

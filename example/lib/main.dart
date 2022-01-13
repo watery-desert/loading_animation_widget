@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 const Color _kAppColor = Color(0xFFFDDE6F);
-const double _kSize = 200;
+const double _kSize = 100;
 void main() {
   runApp(const MyApp());
 }
@@ -14,12 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          canvasColor: _kAppColor,
-          snackBarTheme: const SnackBarThemeData(
-              backgroundColor: Colors.brown,
-              contentTextStyle: TextStyle(
-                fontSize: 20,
-              ))),
+        canvasColor: _kAppColor,
+        snackBarTheme: const SnackBarThemeData(
+          backgroundColor: Colors.brown,
+          contentTextStyle: TextStyle(
+            fontSize: 20,
+          ),
+        ),
+      ),
       home: const HomePage(),
     );
   }
@@ -148,7 +150,7 @@ final listOfAnimations = <AppBody>[
   AppBody(
     'Watery Desert',
     const Text(
-      'Total animations: 20 \n please give me star \nand follow me on social media',
+      'Total animations: 20',
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 18,
@@ -156,8 +158,8 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'wavingDots',
-    LoadingAnimationWidget.wavingDots(
+    'waveDots',
+    LoadingAnimationWidget.waveDots(
       color: Colors.white,
       size: _kSize,
     ),
@@ -179,14 +181,14 @@ final listOfAnimations = <AppBody>[
   ),
   AppBody(
     'threeRotatingDots',
-    LoadingAnimationWidget.threeRotatingBalls(
+    LoadingAnimationWidget.threeRotatingDots(
       color: Colors.white,
       size: _kSize,
     ),
   ),
   AppBody(
-    'staggeredDotWave',
-    LoadingAnimationWidget.staggeredDotWave(
+    'staggeredDotsWave',
+    LoadingAnimationWidget.staggeredDotsWave(
       color: Colors.white,
       size: _kSize,
     ),
@@ -217,6 +219,8 @@ final listOfAnimations = <AppBody>[
     LoadingAnimationWidget.discreteCircle(
       color: Colors.white,
       size: _kSize,
+      secondRingColor: Colors.black,
+      thirdRingColor: Colors.purple
     ),
   ),
   AppBody(
@@ -263,8 +267,8 @@ final listOfAnimations = <AppBody>[
     ),
   ),
   AppBody(
-    'horizontalDotsRotation',
-    LoadingAnimationWidget.threeHorizontalDots(
+    'horizontalRotatingDots',
+    LoadingAnimationWidget.horizontalRotatingDots(
       color: Colors.white,
       size: _kSize,
     ),

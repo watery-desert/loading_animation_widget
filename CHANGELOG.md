@@ -1,3 +1,10 @@
+## 1.0.0+0
+- unnecessary time API is now removed.
+- API renamed: 
+  - `threeHorizontalDots -> horizontalRotatingDots`
+  - `staggeredDotWave -> staggeredDotsWave`
+  - `wavingDots - waveDots`
+- Added a test  
 ## 0.0.2+2
 - change screen recording layout to grid.
 - changed description to keep within 180 characters.

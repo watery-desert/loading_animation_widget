@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 
-class WavingDots extends StatefulWidget {
+class WaveDots extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
 
-  const WavingDots({
+  const WaveDots({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
   }) : super(key: key);
 
   @override
-  _WavingDotsState createState() => _WavingDotsState();
+  _WaveDotsState createState() => _WaveDotsState();
 }
 
-class _WavingDotsState extends State<WavingDots>
+class _WaveDotsState extends State<WaveDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -25,7 +23,7 @@ class _WavingDotsState extends State<WavingDots>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 1200),
     )..repeat();
   }
 

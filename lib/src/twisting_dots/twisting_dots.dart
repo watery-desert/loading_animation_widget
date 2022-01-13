@@ -6,14 +6,12 @@ class TwistingDots extends StatefulWidget {
   final double size;
   final Color leftDotColor;
   final Color rightDotColor;
-  final int time;
 
   const TwistingDots({
     Key? key,
     required this.size,
     required this.leftDotColor,
     required this.rightDotColor,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -29,7 +27,7 @@ class _TwistingDotsState extends State<TwistingDots>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 3000),
     )..repeat();
   }
 

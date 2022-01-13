@@ -4,12 +4,12 @@ import '../widgets/draw_dot.dart';
 class BouncingBall extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
+
   const BouncingBall({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
+
   }) : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class _BouncingBallState extends State<BouncingBall>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 1200),
     )..repeat();
   }
 

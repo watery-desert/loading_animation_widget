@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-class StaggeredDotWave extends StatefulWidget {
+class StaggeredDotsWave extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
-  const StaggeredDotWave({
+
+  const StaggeredDotsWave({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
   }) : super(key: key);
 
   @override
-  State<StaggeredDotWave> createState() => _StaggeredDotWaveState();
+  State<StaggeredDotsWave> createState() => _StaggeredDotsWaveState();
 }
 
-class _StaggeredDotWaveState extends State<StaggeredDotWave>
+class _StaggeredDotsWaveState extends State<StaggeredDotsWave>
     with SingleTickerProviderStateMixin {
   late AnimationController _offsetController;
 
@@ -25,7 +24,7 @@ class _StaggeredDotWaveState extends State<StaggeredDotWave>
 
     _offsetController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 1600),
     )..repeat();
   }
 

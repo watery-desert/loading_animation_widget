@@ -4,12 +4,11 @@ import '../widgets/draw_dot.dart';
 class PrograssiveDots extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
+
   const PrograssiveDots({
     Key? key,
     required this.color,
     required this.size,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -25,8 +24,8 @@ class _PrograssiveDotsState extends State<PrograssiveDots>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(
-        milliseconds: widget.time,
+      duration: const Duration(
+        milliseconds: 800,
       ),
     )..repeat();
   }

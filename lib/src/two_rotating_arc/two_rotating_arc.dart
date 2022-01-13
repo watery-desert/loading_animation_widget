@@ -5,12 +5,10 @@ import 'dart:math' as math;
 class TwoRotatingArc extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
   const TwoRotatingArc({
     Key? key,
     required this.color,
     required this.size,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -26,7 +24,7 @@ class _TwoRotatingArcState extends State<TwoRotatingArc>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 1500),
     )..repeat();
   }
 

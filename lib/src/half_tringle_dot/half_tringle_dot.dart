@@ -5,12 +5,10 @@ import '../widgets/draw_triangle.dart';
 class HalfTringleDot extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
   const HalfTringleDot({
     Key? key,
     required this.size,
     required this.color,
-    this.time = 3000,
   }) : super(key: key);
 
   @override
@@ -26,7 +24,7 @@ class _HalfTringleDotState extends State<HalfTringleDot>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 3000),
     )..repeat();
   }
 

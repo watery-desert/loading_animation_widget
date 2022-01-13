@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import '../widgets/draw_dot.dart';
 
-class ThreeHorizontalDots extends StatefulWidget {
+class HorizontalRotatingDots extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
-  const ThreeHorizontalDots({
+
+  const HorizontalRotatingDots({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
   }) : super(key: key);
 
   @override
-  _ThreeHorizontalDotsState createState() => _ThreeHorizontalDotsState();
+  _HorizontalRotatingDotsState createState() => _HorizontalRotatingDotsState();
 }
 
-class _ThreeHorizontalDotsState extends State<ThreeHorizontalDots>
+class _HorizontalRotatingDotsState extends State<HorizontalRotatingDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<Offset> _leftDotTranslate;
@@ -39,9 +38,7 @@ class _ThreeHorizontalDotsState extends State<ThreeHorizontalDots>
     final double dotSize = size / 4;
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(
-        milliseconds: widget.time,
-      ),
+      duration: const Duration(milliseconds: 800),
     )..repeat();
 
     _leftDotTranslate = Tween<Offset>(

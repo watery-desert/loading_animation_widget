@@ -5,12 +5,10 @@ import 'build_sides.dart';
 class DotsTriangle extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
   const DotsTriangle({
     Key? key,
     required this.color,
     required this.size,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -26,7 +24,7 @@ class _DotsTriangleState extends State<DotsTriangle>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 1200),
     )..repeat();
   }
 

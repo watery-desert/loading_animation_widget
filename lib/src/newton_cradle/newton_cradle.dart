@@ -4,14 +4,12 @@ import 'swivel_dot.dart';
 
 class NewtonCradle extends StatefulWidget {
   final double size;
-  final int time;
   final Color color;
 
   const NewtonCradle({
     Key? key,
     required this.size,
     required this.color,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -28,7 +26,7 @@ class _NewtonCradleState extends State<NewtonCradle>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 1200),
     )..repeat();
   }
 

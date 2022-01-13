@@ -8,12 +8,11 @@ const double _kMinAngle = math.pi / 36;
 class ThreeArchedCircle extends StatefulWidget {
   final double size;
   final Color color;
-  final int time;
   const ThreeArchedCircle({
     Key? key,
     required this.color,
     required this.size,
-    required this.time,
+
   }) : super(key: key);
 
   @override
@@ -30,7 +29,7 @@ class _ThreeArchedCircleState extends State<ThreeArchedCircle>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.time),
+      duration: const Duration(milliseconds: 2000),
     )..repeat();
   }
 
