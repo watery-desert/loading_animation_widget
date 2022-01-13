@@ -290,6 +290,7 @@ final listOfAnimations = <AppBody>[
     'halfTringleDot',
     LoadingAnimationWidget.halfTringleDot(
       color: Colors.white,
+      dotColor: Colors.grey,
       size: _kSize,
     ),
   ),
