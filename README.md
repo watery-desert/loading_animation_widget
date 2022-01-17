@@ -9,6 +9,10 @@
 [![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
 </div>
 
+<hr>
+
+<a href="https://www.buymeacoffee.com/watery_desert"><img src="https://img.buymeacoffee.com/button-api/?text=Support me &emoji=&slug=watery_desert&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+
 
 
 ## **How to use**
@@ -164,7 +168,7 @@ Scaffold(
 
 <br>
 <details>
-   <summary> All package list</summary>
+   <summary>All flutter packages</summary>
    <br>
 
    ● [Sliding Clipped Nav Bar](https://github.com/watery-desert/sliding_clipped_nav_bar)\
