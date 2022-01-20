@@ -11,8 +11,9 @@
 
 <hr>
 
-<a href="https://www.buymeacoffee.com/watery_desert"><img src="https://img.buymeacoffee.com/button-api/?text=Support me &emoji=&slug=watery_desert&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+#### ⚠️  If you like this package please consider supporting me. This will help me to maintain free and open source flutter packages.
 
+<a href="https://www.buymeacoffee.com/watery_desert"><img src="https://raw.githubusercontent.com/watery-desert/assets/main/watery_desert/bmc-button.png" height="56"></a>
 
 
 ## **How to use**
