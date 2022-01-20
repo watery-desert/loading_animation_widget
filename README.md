@@ -18,13 +18,16 @@
 
 ## **How to use**
 
+#### Installation
+
 Add `loading_animation_widget:` to your `pubspec.yaml` dependencies then run `flutter pub get`
 
 ```yaml
  dependencies:
   loading_animation_widget:
 ```
-Then import the package to use
+#### Import
+Add this line to import the package.
 
 ```dart 
 import 'package:loading_animation_widget/loading_animation_widget.dart';
