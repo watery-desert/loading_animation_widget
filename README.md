@@ -158,12 +158,12 @@ Scaffold(
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/stretchedDots.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/5878367-Loaders">halfTringleDot</a>
+      <a href="https://dribbble.com/shots/5878367-Loaders">halfTriangleDot</a>
       <br> 
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/halfTriangleDot.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/2689200-Loading">dotsTrangle</a>
+      <a href="https://dribbble.com/shots/2689200-Loading">dotsTriangle</a>
       <br> 
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/dotsTriangle.gif"  width="200"/>
    </td>
