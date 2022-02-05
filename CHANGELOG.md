@@ -1,3 +1,6 @@
+## 1.1.0+3
+- Breaking Change `HalfTringleDot` to `HalfTriangleDot`
+- fixed some typos
 ## 1.0.0+3
 - Documentation update
 ## 1.0.0+2

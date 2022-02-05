@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import '../widgets/draw_dot.dart';
 import '../widgets/draw_triangle.dart';
 
-class HalfTringleDot extends StatefulWidget {
+class HalfTriangleDot extends StatefulWidget {
   final double size;
   final Color color;
-  const HalfTringleDot({
+  const HalfTriangleDot({
     Key? key,
     required this.size,
     required this.color,
   }) : super(key: key);
 
   @override
-  _HalfTringleDotState createState() => _HalfTringleDotState();
+  _HalfTriangleDotState createState() => _HalfTriangleDotState();
 }
 
-class _HalfTringleDotState extends State<HalfTringleDot>
+class _HalfTriangleDotState extends State<HalfTriangleDot>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

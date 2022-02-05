@@ -7,7 +7,7 @@ import 'package:loading_animation_widget/src/dots_triangle/dots_triangle.dart';
 import 'package:loading_animation_widget/src/falling_dot/falling_dot.dart';
 import 'package:loading_animation_widget/src/flickr/flickr.dart';
 import 'package:loading_animation_widget/src/four_rotating_dots/four_rotating_dots.dart';
-import 'package:loading_animation_widget/src/half_tringle_dot/half_tringle_dot.dart';
+import 'package:loading_animation_widget/src/half_tringle_dot/half_triangle_dot.dart';
 import 'package:loading_animation_widget/src/hexagon_dots/hexagon_dots.dart';
 import 'package:loading_animation_widget/src/horizontal_rotating_dots/horizontal_rotating_dots.dart';
 import 'package:loading_animation_widget/src/ink_drop/ink_drop.dart';
@@ -115,7 +115,7 @@ testWidgets('DiscreteCircle Ticker has been disposed.',
   testWidgets('HalfTringleDot Ticker has been disposed.',
       (WidgetTester tester) async {
     await tester.pumpWidget(
-      baseStructure(const HalfTringleDot(
+      baseStructure(const HalfTriangleDot(
         size: _testSize,
         color: _testColor,
       )),

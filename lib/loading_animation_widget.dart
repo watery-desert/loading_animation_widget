@@ -9,7 +9,7 @@ import 'src/dots_triangle/dots_triangle.dart';
 import 'src/two_rotating_arc/two_rotating_arc.dart';
 import 'src/hexagon_dots/hexagon_dots.dart';
 import 'src/flickr/flickr.dart';
-import 'src/half_tringle_dot/half_tringle_dot.dart';
+import 'src/half_triangle_dot/half_triangle_dot.dart';
 
 import 'src/horizontal_rotating_dots/horizontal_rotating_dots.dart';
 import 'src/ink_drop/ink_drop.dart';
@@ -179,12 +179,12 @@ class LoadingAnimationWidget {
   /// An equilateral triangle has two side and a dot in the empty side. The dot
   /// moves those two sides also change position. Required color is applied to
   /// two sides and the dot.
-  static Widget halfTringleDot({
+  static Widget halfTriangleDot({
     required Color color,
     required double size,
     Key? key,
   }) {
-    return HalfTringleDot(
+    return HalfTriangleDot(
       color: color,
       size: size,
       key: key,

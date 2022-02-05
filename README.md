@@ -16,7 +16,7 @@
 <a href="https://www.buymeacoffee.com/watery_desert"><img src="https://raw.githubusercontent.com/watery-desert/assets/main/watery_desert/bmc-button.png" height="56"></a>
 
 
-## **How to use**
+## How to use
 
 #### Installation
 
@@ -160,12 +160,12 @@ Scaffold(
    <td align="center">
       <a href="https://dribbble.com/shots/5878367-Loaders">halfTringleDot</a>
       <br> 
-      <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/halfTringleDot.gif"  width="200"/>
+      <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/halfTriangleDot.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/2689200-Loading">dotTrangle</a>
+      <a href="https://dribbble.com/shots/2689200-Loading">dotsTrangle</a>
       <br> 
-      <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/dotTrangle.gif"  width="200"/>
+      <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/dotsTriangle.gif"  width="200"/>
    </td>
    </tr>
 </table>
