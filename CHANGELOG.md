@@ -1,3 +1,5 @@
+## 1.2.0
+- Improved folder structure
 ## 1.1.0+5
 - Readme update
 ## 1.1.0+3
