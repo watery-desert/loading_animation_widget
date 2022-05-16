@@ -1,3 +1,6 @@
+## 1.2.0+1
+- Included the missing example
+- formatted code
 ## 1.2.0
 - Improved folder structure
 ## 1.1.0+5

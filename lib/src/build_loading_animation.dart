@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'beat/beat.dart';
@@ -23,8 +22,6 @@ import 'three_arched_circle/three_arched_circle.dart';
 import 'prograssive_dots/prograssive_dots.dart';
 import 'four_rotating_dots/four_rotating_dots.dart';
 import 'falling_dot/falling_dot.dart';
-
-
 
 class LoadingAnimationWidget {
   LoadingAnimationWidget._();

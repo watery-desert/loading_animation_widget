@@ -19,6 +19,9 @@ class _TwoRotatingArcState extends State<TwoRotatingArc>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
+  final Cubic firstCurve = Curves.easeInQuart;
+  final Cubic secondCurve = Curves.easeOutQuart;
+
   @override
   void initState() {
     super.initState();
@@ -32,8 +35,6 @@ class _TwoRotatingArcState extends State<TwoRotatingArc>
   Widget build(BuildContext context) {
     final double size = widget.size;
     final double strokeWidth = size / 10;
-    final Cubic firstCurve = Curves.easeInQuart;
-    final Cubic secondCurve = Curves.easeOutQuart;
     final Color color = widget.color;
 
     return AnimatedBuilder(

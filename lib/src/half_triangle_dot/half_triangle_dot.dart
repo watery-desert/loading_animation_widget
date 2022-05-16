@@ -18,6 +18,7 @@ class HalfTriangleDot extends StatefulWidget {
 class _HalfTriangleDotState extends State<HalfTriangleDot>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
+  final Cubic curve = Curves.easeOutQuad;
 
   @override
   void initState() {
@@ -43,7 +44,6 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
     final Color color = widget.color;
     final double innerHeight = 0.74 * size;
     final double innerWidth = 0.87 * size;
-    final Cubic curve = Curves.easeOutQuad;
     final double storkeWidth = size / 8;
     final CurvedAnimation firstCurvedAnimation = CurvedAnimation(
       parent: _animationController,

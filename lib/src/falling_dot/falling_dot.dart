@@ -20,7 +20,7 @@ class FallingDot extends StatefulWidget {
 class _FallingDotState extends State<FallingDot>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-
+  final double startAngle = -math.pi / 4;
   @override
   void initState() {
     super.initState();
@@ -36,9 +36,9 @@ class _FallingDotState extends State<FallingDot>
   Widget build(BuildContext context) {
     final double size = widget.size;
     final Color color = widget.color;
-    final Cubic curve = Curves.easeInOutCubic;
+    const Cubic curve = Curves.easeInOutCubic;
     final double strokeWidth = size * 0.08;
-    const double startAngle = -math.pi / 4;
+
     const double endAngle = 3 * math.pi / 2;
     final double innerBoxSize = size * 0.6;
     final double dotFinalSize = size * 0.15;
@@ -117,7 +117,7 @@ class _FallingDotState extends State<FallingDot>
                         .animate(
                           CurvedAnimation(
                             parent: _animationController,
-                            curve: Interval(
+                            curve: const Interval(
                               0.0,
                               0.3,
                               curve: curve,
@@ -144,7 +144,7 @@ class _FallingDotState extends State<FallingDot>
                         .animate(
                           CurvedAnimation(
                             parent: _animationController,
-                            curve: Interval(
+                            curve: const Interval(
                               0.5,
                               0.8,
                               curve: curve,
@@ -171,7 +171,7 @@ class _FallingDotState extends State<FallingDot>
                         .animate(
                           CurvedAnimation(
                             parent: _animationController,
-                            curve: Interval(
+                            curve: const Interval(
                               0.1,
                               0.3,
                               curve: curve,

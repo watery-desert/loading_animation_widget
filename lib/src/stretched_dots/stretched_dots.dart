@@ -24,7 +24,8 @@ class StretchedDots extends StatefulWidget {
 class _StretchedDotsState extends State<StretchedDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-
+  final Cubic firstCurve = Curves.easeInCubic;
+  final Cubic seconCurve = Curves.easeOutCubic;
   @override
   void initState() {
     super.initState();
@@ -40,8 +41,7 @@ class _StretchedDotsState extends State<StretchedDots>
     final double innerHeight = widget.innerHeight;
     final double dotWidth = widget.dotWidth;
     final Color color = widget.color;
-    final Cubic firstCurve = Curves.easeInCubic;
-    final Cubic seconCurve = Curves.easeOutCubic;
+
     return AnimatedBuilder(
       animation: _animationController,
       builder: (_, __) => Container(
