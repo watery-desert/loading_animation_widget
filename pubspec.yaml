@@ -2,7 +2,7 @@ name: loading_animation_widget
 description: Loading animation or loading spiner or loader. It's used to show loading animation when the app is in loading state or something is processing for uncertain time.
 repository: https://github.com/watery-desert/loading_animation_widget
 
-version: 1.2.0+1
+version: 1.2.0+2
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
