@@ -1,3 +1,5 @@
+## 1.2.0+3
+- Readme update
 ## 1.2.0+2
 - Readme update
 ## 1.2.0+1
