@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         canvasColor: _kAppColor,
         snackBarTheme: const SnackBarThemeData(
@@ -148,7 +149,7 @@ class AppBody {
 
 final listOfAnimations = <AppBody>[
   AppBody(
-    'Watery Desert',
+    'waterydesert.com',
     const Text(
       'Total animations: 20',
       textAlign: TextAlign.center,

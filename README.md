@@ -4,12 +4,10 @@
 
 <div align="center">
 
-[![YouTube Badge](https://img.shields.io/badge/-YouTube-EA3223?style=for-the-badge&labelColor=EA3223&logo=youtube&logoColor=white)](https://www.youtube.com/waterydesert)
-[![Twitter Badge](https://img.shields.io/badge/-Twitter-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/watery_desert)](https://twitter.com/watery_desert)
-[![Instagram Badge](https://img.shields.io/badge/-Instagram-e84393?style=for-the-badge&labelColor=e84393&logo=instagram&logoColor=white)](https://instagram.com/watery_desert)
-[![Discord Badge](https://img.shields.io/badge/-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/f9CC5sEK87)
-[![Patreon Badge](https://img.shields.io/badge/-Patreon-FF424D?style=for-the-badge&labelColor=FF424D&logo=patreon&logoColor=white)](https://www.patreon.com/watery_desert)
-[![BMC Badge](https://img.shields.io/badge/-Buy_Me_a_Coffee-FFDD00?style=for-the-badge&labelColor=FFDD00&logo=buymeacoffee&logoColor=535353)](https://www.buymeacoffee.com/watery_desert)
+[![YouTube Badge](https://img.shields.io/badge/-YouTube-EA3223?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/waterydesert)
+[![Mastodon Badge](https://img.shields.io/badge/-Mastodon-6169F6?style=for-the-badge&logo=mastodon&logoColor=white)](https://mastodon.social/@watery_desert)
+[![Patreon Badge](https://img.shields.io/badge/-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/watery_desert)
+[![BMC Badge](https://img.shields.io/badge/-Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=535353)](https://www.buymeacoffee.com/watery_desert)
 [![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
 </div>
 
