@@ -10,7 +10,6 @@
 [![Patreon Badge](https://img.shields.io/badge/-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/watery_desert)
 [![BMC Badge](https://img.shields.io/badge/-Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=535353)](https://www.buymeacoffee.com/watery_desert)
 [![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
-
 [![WateryDesert](https://img.shields.io/badge/WateryDesert-Website-F8D977?style=for-the-badge)](https://waterydesert.com)
 </div>
 
