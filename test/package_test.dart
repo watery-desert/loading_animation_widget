@@ -12,7 +12,7 @@ import 'package:loading_animation_widget/src/hexagon_dots/hexagon_dots.dart';
 import 'package:loading_animation_widget/src/horizontal_rotating_dots/horizontal_rotating_dots.dart';
 import 'package:loading_animation_widget/src/ink_drop/ink_drop.dart';
 import 'package:loading_animation_widget/src/newton_cradle/newton_cradle.dart';
-import 'package:loading_animation_widget/src/prograssive_dots/prograssive_dots.dart';
+import 'package:loading_animation_widget/src/progressive_dots/progressive_dots.dart';
 import 'package:loading_animation_widget/src/staggered_dots_wave/staggered_dots_wave.dart';
 import 'package:loading_animation_widget/src/stretched_dots/stretched_dots.dart';
 import 'package:loading_animation_widget/src/three_arched_circle/three_arched_circle.dart';
@@ -171,10 +171,10 @@ testWidgets('DiscreteCircle Ticker has been disposed.',
     tester.verifyTickersWereDisposed();
   });
 
-  testWidgets('PrograssiveDots Ticker has been disposed.',
+  testWidgets('ProgressiveDots Ticker has been disposed.',
       (WidgetTester tester) async {
     await tester.pumpWidget(
-      baseStructure(const PrograssiveDots(
+      baseStructure(const ProgressiveDots(
         size: _testSize,
         color: _testColor,
       )),

@@ -19,7 +19,7 @@ import 'wave_dots/wave_dots.dart';
 
 import 'bouncing_ball/bouncing_ball.dart';
 import 'three_arched_circle/three_arched_circle.dart';
-import 'prograssive_dots/prograssive_dots.dart';
+import 'progressive_dots/progressive_dots.dart';
 import 'four_rotating_dots/four_rotating_dots.dart';
 import 'falling_dot/falling_dot.dart';
 
@@ -56,12 +56,12 @@ class LoadingAnimationWidget {
 
   /// Four dots in a row left most scales down and a new dot emerge from right.
   /// Required color is applied to four dots.
-  static Widget prograssiveDots({
+  static Widget progressiveDots({
     required Color color,
     required double size,
     Key? key,
   }) {
-    return PrograssiveDots(
+    return ProgressiveDots(
       color: color,
       size: size,
       key: key,
