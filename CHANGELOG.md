@@ -1,5 +1,5 @@
 ## 1.2.1
-- Readme update
+- dart sdk constraint update
 ## 1.2.0+1
 - Included the missing example
 - formatted code
