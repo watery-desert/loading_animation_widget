@@ -1,4 +1,4 @@
-## 1.2.0+5
+## 1.2.1
 - Readme update
 ## 1.2.0+1
 - Included the missing example
