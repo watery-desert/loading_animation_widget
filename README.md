@@ -1,14 +1,16 @@
 <p align="center">
-   <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/package_cover.png" alt="Loading Animation Widget" />
+<a style="text-decoration: none" href="https://waterydesert.com"><img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/package_cover.png" alt="Loading Animation Widget"/></a>
+   
 </p>
 
 <div align="center">
 
 [![YouTube Badge](https://img.shields.io/badge/-YouTube-EA3223?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/waterydesert)
-[![Mastodon Badge](https://img.shields.io/badge/-Mastodon-6169F6?style=for-the-badge&logo=mastodon&logoColor=white)](https://mastodon.social/@watery_desert)
+[![Twitter Badge](https://img.shields.io/badge/-Twitter-198CD8?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/watery_desert)
 [![Patreon Badge](https://img.shields.io/badge/-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/watery_desert)
 [![BMC Badge](https://img.shields.io/badge/-Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=535353)](https://www.buymeacoffee.com/watery_desert)
 [![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
+[![WateryDesert](https://img.shields.io/badge/WateryDesert-Website-FDF8D8?style=for-the-badge)](https://waterydesert.com)
 </div>
 
 <hr>
