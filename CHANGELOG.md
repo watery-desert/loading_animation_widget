@@ -1,8 +1,4 @@
-## 1.2.0+4
-- Readme update
-## 1.2.0+3
-- Readme update
-## 1.2.0+2
+## 1.2.0+5
 - Readme update
 ## 1.2.0+1
 - Included the missing example
