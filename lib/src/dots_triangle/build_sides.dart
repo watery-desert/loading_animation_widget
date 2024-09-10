@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/rounded_rectangle.dart';
 
 class BuildSides extends StatelessWidget {
@@ -10,6 +12,7 @@ class BuildSides extends StatelessWidget {
   final double rotationAngle;
   final Offset rotationOrigin;
   final bool forward;
+
   const BuildSides.forward({
     Key? key,
     required this.maxLength,
@@ -42,43 +45,29 @@ class BuildSides extends StatelessWidget {
 
     final double endInterval = interval.end;
 
-    final CurvedAnimation leftCurvedAnimation = CurvedAnimation(
-      parent: controller,
-      curve: Interval(
-        startInterval,
-        middleInterval,
-      ),
-    );
-
-    final CurvedAnimation rightCurvedAnimation = CurvedAnimation(
-      parent: controller,
-      curve: Interval(
-        middleInterval,
-        endInterval,
-      ),
-    );
+    final Interval leftInterval = Interval(startInterval, middleInterval);
+    final Interval rightInterval = Interval(middleInterval, endInterval);
 
     final Widget firstChild = Visibility(
       visible: forward
           ? controller.value <= middleInterval
           : controller.value >= middleInterval,
       child: Transform.translate(
-        offset: Tween<Offset>(
-          begin: forward ? Offset.zero : Offset(offset, 0),
-          end: forward ? Offset(offset, 0) : Offset.zero,
-        )
-            .animate(
-              forward ? leftCurvedAnimation : rightCurvedAnimation,
-            )
-            .value,
+        offset: controller.eval(
+          Tween<Offset>(
+            begin: forward ? Offset.zero : Offset(offset, 0),
+            end: forward ? Offset(offset, 0) : Offset.zero,
+          ),
+          curve: forward ? leftInterval : rightInterval,
+        ),
         child: RoundedRectangle.horizontal(
-          width: Tween<double>(
-                  begin: forward ? depth : maxLength,
-                  end: forward ? maxLength : depth)
-              .animate(
-                forward ? leftCurvedAnimation : rightCurvedAnimation,
-              )
-              .value,
+          width: controller.eval(
+            Tween<double>(
+              begin: forward ? depth : maxLength,
+              end: forward ? maxLength : depth,
+            ),
+            curve: forward ? leftInterval : rightInterval,
+          ),
           height: depth,
           color: color,
         ),
@@ -90,22 +79,21 @@ class BuildSides extends StatelessWidget {
           ? controller.value >= middleInterval
           : controller.value <= middleInterval,
       child: Transform.translate(
-        offset: Tween<Offset>(
-          begin: forward ? Offset(-offset, 0) : Offset.zero,
-          end: forward ? Offset.zero : Offset(-offset, 0),
-        )
-            .animate(
-              forward ? rightCurvedAnimation : leftCurvedAnimation,
-            )
-            .value,
+        offset: controller.eval(
+          Tween<Offset>(
+            begin: forward ? Offset(-offset, 0) : Offset.zero,
+            end: forward ? Offset.zero : Offset(-offset, 0),
+          ),
+          curve: forward ? rightInterval : leftInterval,
+        ),
         child: RoundedRectangle.horizontal(
-          width: Tween<double>(
-                  begin: forward ? maxLength : depth,
-                  end: forward ? depth : maxLength)
-              .animate(
-                forward ? rightCurvedAnimation : leftCurvedAnimation,
-              )
-              .value,
+          width: controller.eval(
+            Tween<double>(
+              begin: forward ? maxLength : depth,
+              end: forward ? depth : maxLength,
+            ),
+            curve: forward ? rightInterval : leftInterval,
+          ),
           height: depth,
           color: color,
         ),

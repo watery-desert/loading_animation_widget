@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/draw_dot.dart';
 
 class PrograssiveDots extends StatefulWidget {
@@ -40,20 +42,13 @@ class _PrograssiveDotsState extends State<PrograssiveDots>
     final double previousDotPosition = -(gapBetweenDots + dotSize);
 
     Widget translatingDot() => Transform.translate(
-          offset: Tween<Offset>(
-            begin: Offset.zero,
-            end: Offset(previousDotPosition, 0),
-          )
-              .animate(
-                CurvedAnimation(
-                  parent: _animationController,
-                  curve: const Interval(
-                    0.22,
-                    0.82,
-                  ),
-                ),
-              )
-              .value,
+          offset: _animationController.eval(
+            Tween<Offset>(
+              begin: Offset.zero,
+              end: Offset(previousDotPosition, 0),
+            ),
+            curve: const Interval(0.22, 0.82),
+          ),
           child: DrawDot.circular(
             dotSize: dotSize,
             color: color,
@@ -61,17 +56,13 @@ class _PrograssiveDotsState extends State<PrograssiveDots>
         );
 
     Widget scalingDot(bool scaleDown, Interval interval) => Transform.scale(
-          scale: Tween<double>(
-            begin: scaleDown ? 1.0 : 0.0,
-            end: scaleDown ? 0.0 : 1.0,
-          )
-              .animate(
-                CurvedAnimation(
-                  parent: _animationController,
-                  curve: interval,
-                ),
-              )
-              .value,
+          scale: _animationController.eval(
+            Tween<double>(
+              begin: scaleDown ? 1.0 : 0.0,
+              end: scaleDown ? 0.0 : 1.0,
+            ),
+            curve: interval,
+          ),
           child: DrawDot.circular(
             dotSize: dotSize,
             color: color,

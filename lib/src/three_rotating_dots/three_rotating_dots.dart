@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
-import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
+import '../widgets/draw_dot.dart';
 
 class ThreeRotatingDots extends StatefulWidget {
   final double size;
@@ -174,26 +177,18 @@ class _BuildDot extends StatelessWidget {
           ? controller.value <= interval.end
           : controller.value >= interval.begin,
       child: Transform.rotate(
-        angle: Tween<double>(
-          begin: beginAngle,
-          end: endAngle,
-        )
-            .animate(
-              CurvedAnimation(parent: controller, curve: interval),
-            )
-            .value,
+        angle: controller.eval(
+          Tween<double>(begin: beginAngle, end: endAngle),
+          curve: interval,
+        ),
         child: Transform.translate(
-          offset: Tween<Offset>(
-            begin: first ? Offset.zero : Offset(0, -dotOffset),
-            end: first ? Offset(0, -dotOffset) : Offset.zero,
-          )
-              .animate(
-                CurvedAnimation(
-                  parent: controller,
-                  curve: interval,
-                ),
-              )
-              .value,
+          offset: controller.eval(
+            Tween<Offset>(
+              begin: first ? Offset.zero : Offset(0, -dotOffset),
+              end: first ? Offset(0, -dotOffset) : Offset.zero,
+            ),
+            curve: interval,
+          ),
           child: DrawDot.circular(
             color: color,
             dotSize: size,

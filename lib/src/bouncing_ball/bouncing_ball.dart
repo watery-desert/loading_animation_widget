@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/draw_dot.dart';
 
 class BouncingBall extends StatefulWidget {
@@ -45,21 +47,13 @@ class _BouncingBallState extends State<BouncingBall>
               Visibility(
                 visible: _animationController.value <= 0.4,
                 child: Transform.translate(
-                  offset: Tween<Offset>(
-                    begin: Offset.zero,
-                    end: Offset(0, size - ballSize),
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(
-                            0.0,
-                            0.4,
-                            curve: Curves.easeIn,
-                          ),
-                        ),
-                      )
-                      .value,
+                  offset: _animationController.eval(
+                    Tween<Offset>(
+                      begin: Offset.zero,
+                      end: Offset(0, size - ballSize),
+                    ),
+                    curve: const Interval(0, 0.4, curve: Curves.easeIn),
+                  ),
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: DrawDot.circular(
@@ -76,34 +70,18 @@ class _BouncingBallState extends State<BouncingBall>
                   alignment: Alignment.bottomCenter,
                   child: DrawDot.elliptical(
                     color: color,
-                    width: Tween<double>(
-                      begin: ballSize,
-                      end: ballSize + radiusDisplacement,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.4,
-                              0.45,
-                            ),
-                          ),
-                        )
-                        .value,
-                    height: Tween<double>(
-                      begin: ballSize,
-                      end: ballSize - radiusDisplacement,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.4,
-                              0.45,
-                            ),
-                          ),
-                        )
-                        .value,
+                    width: _animationController.evalDouble(
+                      from: ballSize,
+                      to: ballSize + radiusDisplacement,
+                      begin: 0.4,
+                      end: 0.45,
+                    ),
+                    height: _animationController.evalDouble(
+                      from: ballSize,
+                      to: ballSize - radiusDisplacement,
+                      begin: 0.4,
+                      end: 0.45,
+                    ),
                   ),
                 ),
               ),
@@ -114,55 +92,31 @@ class _BouncingBallState extends State<BouncingBall>
                   alignment: Alignment.bottomCenter,
                   child: DrawDot.elliptical(
                     color: color,
-                    width: Tween<double>(
-                      begin: ballSize + radiusDisplacement,
-                      end: ballSize,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.45,
-                              0.5,
-                            ),
-                          ),
-                        )
-                        .value,
-                    height: Tween<double>(
-                      begin: ballSize - radiusDisplacement,
-                      end: ballSize,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.45,
-                              0.5,
-                            ),
-                          ),
-                        )
-                        .value,
+                    width: _animationController.evalDouble(
+                      from: ballSize + radiusDisplacement,
+                      to: ballSize,
+                      begin: 0.45,
+                      end: 0.5,
+                    ),
+                    height: _animationController.evalDouble(
+                      from: ballSize - radiusDisplacement,
+                      to: ballSize,
+                      begin: 0.45,
+                      end: 0.5,
+                    ),
                   ),
                 ),
               ),
               Visibility(
                 visible: _animationController.value >= 0.5,
                 child: Transform.translate(
-                  offset: Tween<Offset>(
-                    begin: Offset(0, size - ballSize),
-                    end: Offset.zero,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(
-                            0.5,
-                            1.0,
-                            curve: Curves.easeOutQuad,
-                          ),
-                        ),
-                      )
-                      .value,
+                  offset: _animationController.eval(
+                    Tween<Offset>(
+                      begin: Offset(0, size - ballSize),
+                      end: Offset.zero,
+                    ),
+                    curve: const Interval(0.5, 1.0, curve: Curves.easeOutQuad),
+                  ),
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: DrawDot.circular(

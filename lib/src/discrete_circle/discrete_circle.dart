@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 import '../widgets/draw_arc.dart';
 import 'dart:math' as math;
 
@@ -45,18 +46,12 @@ class _DiscreteCircleState extends State<DiscreteCircle>
         return Stack(
           children: <Widget>[
             Transform.rotate(
-              angle: Tween<double>(begin: 0, end: 2 * math.pi)
-                  .animate(
-                    CurvedAnimation(
-                      parent: _animationController,
-                      curve: const Interval(
-                        0.68,
-                        0.95,
-                        curve: Curves.easeOut,
-                      ),
-                    ),
-                  )
-                  .value,
+              angle: _animationController.evalDouble(
+                to: 2 * math.pi,
+                begin: 0.68,
+                end: 0.95,
+                curve: Curves.easeOut,
+              ),
               child: Visibility(
                 visible: _animationController.value >= 0.5,
                 child: Arc.draw(
@@ -64,21 +59,13 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                   size: size,
                   strokeWidth: strokeWidth,
                   startAngle: -math.pi / 2,
-                  endAngle: Tween<double>(
-                    begin: math.pi / 2,
-                    end: math.pi / (size * size),
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(
-                            0.7,
-                            0.95,
-                            curve: Curves.easeOutSine,
-                          ),
-                        ),
-                      )
-                      .value,
+                  endAngle: _animationController.evalDouble(
+                    from: math.pi / 2,
+                    to: math.pi / (size * size),
+                    begin: 0.7,
+                    end: 0.95,
+                    curve: Curves.easeOutSine,
+                  ),
                 ),
               ),
             ),
@@ -89,58 +76,36 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                 size: size,
                 strokeWidth: strokeWidth,
                 startAngle: -math.pi / 2,
-                endAngle: Tween<double>(
-                  begin: -2 * math.pi,
-                  end: math.pi / (size * size),
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.6,
-                          0.95,
-                          // curve: Curves.easeIn,
-                          curve: Curves.easeOutSine,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: -2 * math.pi,
+                  to: math.pi / (size * size),
+                  begin: 0.6,
+                  end: 0.95,
+                  curve: Curves.easeOutSine,
+                ),
               ),
             ),
             Visibility(
               visible: _animationController.value <= 0.5,
               // visible: true,
               child: Transform.rotate(
-                angle: Tween<double>(begin: 0, end: math.pi * 0.06)
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.48,
-                          0.5,
-                        ),
-                      ),
-                    )
-                    .value,
+                angle: _animationController.evalDouble(
+                  to: math.pi * 0.06,
+                  begin: 0.48,
+                  end: 0.5,
+                ),
                 child: Arc.draw(
                   color: color,
                   size: size,
                   strokeWidth: strokeWidth,
                   startAngle: -math.pi / 2,
-                  // endAngle: 1.94 * math.pi,
-                  endAngle: Tween<double>(
-                          begin: math.pi / (size * size), end: 1.94 * math.pi)
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(
-                            0.05,
-                            0.48,
-                            curve: Curves.easeOutSine,
-                          ),
-                        ),
-                      )
-                      .value,
+                  endAngle: _animationController.evalDouble(
+                    from: math.pi / (size * size),
+                    to: 1.94 * math.pi,
+                    begin: 0.05,
+                    end: 0.48,
+                    curve: Curves.easeOutSine,
+                  ),
                 ),
               ),
             ),
@@ -151,23 +116,13 @@ class _DiscreteCircleState extends State<DiscreteCircle>
                 size: size,
                 strokeWidth: strokeWidth,
                 startAngle: -math.pi / 2,
-                // endAngle: -1.94 * math.pi
-                endAngle: Tween<double>(
-                  // begin: -2 * math.pi,
-                  begin: -1.94 * math.pi,
-                  end: math.pi / (size * size),
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.5,
-                          0.95,
-                          curve: Curves.easeOutSine,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: -1.94 * math.pi,
+                  to: math.pi / (size * size),
+                  begin: 0.5,
+                  end: 0.95,
+                  curve: Curves.easeOutSine,
+                ),
               ),
             ),
           ],

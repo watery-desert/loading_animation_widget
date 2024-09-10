@@ -1,10 +1,14 @@
-import 'package:flutter/material.dart';
-import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
+import '../widgets/draw_dot.dart';
 
 class FourRotatingDots extends StatefulWidget {
   final double size;
   final Color color;
+
   const FourRotatingDots({
     Key? key,
     required this.color,
@@ -39,17 +43,10 @@ class _FourRotatingDotsState extends State<FourRotatingDots>
     required double finalAngle,
     required Interval interval,
   }) {
-    final double angle = Tween<double>(
-      begin: initialAngle,
-      end: finalAngle,
-    )
-        .animate(
-          CurvedAnimation(
-            parent: _animationController,
-            curve: interval,
-          ),
-        )
-        .value;
+    final double angle = _animationController.eval(
+      Tween<double>(begin: initialAngle, end: finalAngle),
+      curve: interval,
+    );
     return Visibility(
       visible: visible,
       child: Transform.rotate(
@@ -101,61 +98,65 @@ class _FourRotatingDotsState extends State<FourRotatingDots>
     double? dotFinalSize,
     required bool visible,
   }) {
-    final CurvedAnimation curvedAnimation = CurvedAnimation(
-      parent: _animationController,
-      curve: interval,
-    );
-
     final double dotSize = fixedSize
         ? dotInitialSize
-        : Tween<double>(begin: dotInitialSize, end: dotFinalSize)
-            .animate(
-              CurvedAnimation(
-                parent: _animationController,
-                curve: interval,
-              ),
-            )
-            .value;
+        : _animationController.eval(
+            Tween<double>(begin: dotInitialSize, end: dotFinalSize),
+            curve: interval,
+          );
+
     return Visibility(
       visible: visible,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Transform.translate(
-            offset: Tween<Offset>(
-              begin: Offset(-initialOffset, 0),
-              end: Offset(-finalOffset, 0),
-            ).animate(curvedAnimation).value,
+            offset: _animationController.eval(
+              Tween<Offset>(
+                begin: Offset(-initialOffset, 0),
+                end: Offset(-finalOffset, 0),
+              ),
+              curve: interval,
+            ),
             child: DrawDot.circular(
               dotSize: dotSize,
               color: color,
             ),
           ),
           Transform.translate(
-            offset: Tween<Offset>(
-              begin: Offset(initialOffset, 0),
-              end: Offset(finalOffset, 0),
-            ).animate(curvedAnimation).value,
+            offset: _animationController.eval(
+              Tween<Offset>(
+                begin: Offset(initialOffset, 0),
+                end: Offset(finalOffset, 0),
+              ),
+              curve: interval,
+            ),
             child: DrawDot.circular(
               dotSize: dotSize,
               color: color,
             ),
           ),
           Transform.translate(
-            offset: Tween<Offset>(
-              begin: Offset(0, -initialOffset),
-              end: Offset(0, -finalOffset),
-            ).animate(curvedAnimation).value,
+            offset: _animationController.eval(
+              Tween<Offset>(
+                begin: Offset(0, -initialOffset),
+                end: Offset(0, -finalOffset),
+              ),
+              curve: interval,
+            ),
             child: DrawDot.circular(
               dotSize: dotSize,
               color: color,
             ),
           ),
           Transform.translate(
-            offset: Tween<Offset>(
-              begin: Offset(0, initialOffset),
-              end: Offset(0, finalOffset),
-            ).animate(curvedAnimation).value,
+            offset: _animationController.eval(
+              Tween<Offset>(
+                begin: Offset(0, initialOffset),
+                end: Offset(0, finalOffset),
+              ),
+              curve: interval,
+            ),
             child: DrawDot.circular(
               dotSize: dotSize,
               color: color,
@@ -184,21 +185,11 @@ class _FourRotatingDotsState extends State<FourRotatingDots>
             fit: StackFit.expand,
             children: <Widget>[
               Transform.rotate(
-                angle: Tween<double>(
+                angle: _animationController.evalDouble(
+                  to: math.pi / 8,
                   begin: 0.0,
-                  end: math.pi / 8,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.0,
-                          0.18,
-                          // curve: Curves.easeInCubic,
-                        ),
-                      ),
-                    )
-                    .value,
+                  end: 0.18,
+                ),
                 child: _animatingDots(
                   visible: _animationController.value <= 0.18,
                   fixedSize: true,
@@ -214,21 +205,12 @@ class _FourRotatingDotsState extends State<FourRotatingDots>
                 ),
               ),
               Transform.rotate(
-                angle: Tween<double>(
-                  begin: math.pi / 8,
-                  end: math.pi / 4,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.18,
-                          0.36,
-                          // curve: Curves.easeOutCubic,
-                        ),
-                      ),
-                    )
-                    .value,
+                angle: _animationController.evalDouble(
+                  from: math.pi / 8,
+                  to: math.pi / 4,
+                  begin: 0.18,
+                  end: 0.36,
+                ),
                 child: _animatingDots(
                   visible: _animationController.value >= 0.18 &&
                       _animationController.value <= 0.36,
@@ -260,20 +242,12 @@ class _FourRotatingDotsState extends State<FourRotatingDots>
                 offset: maxOffset,
               ),
               Transform.rotate(
-                angle: Tween<double>(
-                  begin: 7 * math.pi / 4,
-                  end: 2 * math.pi,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.6,
-                          0.78,
-                        ),
-                      ),
-                    )
-                    .value,
+                angle: _animationController.evalDouble(
+                  from: 7 * math.pi / 4,
+                  to: 2 * math.pi,
+                  begin: 0.6,
+                  end: 0.78,
+                ),
                 child: _animatingDots(
                   visible: _animationController.value >= 0.60 &&
                       _animationController.value <= 0.78,

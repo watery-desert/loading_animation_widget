@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
 
@@ -49,21 +50,11 @@ class _TwistingDotsState extends State<TwistingDots>
             Visibility(
               visible: _animationController.value < 0.5,
               child: Transform.rotate(
-                angle: Tween<double>(
-                  begin: 0,
-                  end: math.pi,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.0,
-                          0.5,
-                          curve: Curves.elasticOut,
-                        ),
-                      ),
-                    )
-                    .value,
+                angle: _animationController.evalDouble(
+                  to: math.pi,
+                  end: 0.5,
+                  curve: Curves.elasticOut,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -82,21 +73,12 @@ class _TwistingDotsState extends State<TwistingDots>
             Visibility(
               visible: _animationController.value > 0.5,
               child: Transform.rotate(
-                angle: Tween<double>(
-                  begin: -math.pi,
-                  end: 0,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.5,
-                          1.0,
-                          curve: Curves.elasticOut,
-                        ),
-                      ),
-                    )
-                    .value,
+                angle: _animationController.evalDouble(
+                  from: -math.pi,
+                  to: 0,
+                  begin: 0.5,
+                  curve: Curves.elasticOut,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
