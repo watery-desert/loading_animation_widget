@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 
 class Flickr extends StatefulWidget {
   final Color leftDotColor;
@@ -19,6 +20,7 @@ class Flickr extends StatefulWidget {
 class _FlickrState extends State<Flickr> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   final Cubic curves = Curves.ease;
+
   @override
   void initState() {
     super.initState();
@@ -113,14 +115,10 @@ class _BuildDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Offset offsetAnimation = Tween<Offset>(
-      begin: initialOffset,
-      end: finalOffset,
-    )
-        .animate(
-          CurvedAnimation(parent: controller, curve: interval),
-        )
-        .value;
+    final Offset offsetAnimation = controller.eval(
+      Tween<Offset>(begin: initialOffset, end: finalOffset),
+      curve: interval,
+    );
 
     return Visibility(
       visible: visibility,

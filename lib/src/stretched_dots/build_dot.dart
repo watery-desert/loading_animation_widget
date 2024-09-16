@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/rounded_rectangle.dart';
 
 class BuildDot extends StatelessWidget {
@@ -35,29 +37,18 @@ class BuildDot extends StatelessWidget {
             ? Align(
                 alignment: Alignment.bottomCenter,
                 child: Transform.translate(
-                  offset: Tween<Offset>(
-                    begin: Offset.zero,
-                    end: Offset(0, -offset),
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: controller,
-                          curve: firstInterval,
-                        ),
-                      )
-                      .value,
+                  offset: controller.eval(
+                    Tween<Offset>(begin: Offset.zero, end: Offset(0, -offset)),
+                    curve: firstInterval,
+                  ),
                   child: RoundedRectangle.vertical(
                     width: dotWidth,
                     // height: height,
                     color: color,
-                    height: Tween<double>(begin: dotWidth, end: height)
-                        .animate(
-                          CurvedAnimation(
-                            parent: controller,
-                            curve: firstInterval,
-                          ),
-                        )
-                        .value,
+                    height: controller.eval(
+                      Tween<double>(begin: dotWidth, end: height),
+                      curve: firstInterval,
+                    ),
                   ),
                 ),
               )
@@ -66,28 +57,17 @@ class BuildDot extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Transform.translate(
-                    offset: Tween<Offset>(
-                            begin: Offset(0, offset), end: Offset.zero)
-                        .animate(
-                          CurvedAnimation(
-                            parent: controller,
-                            curve: secondInterval,
-                          ),
-                        )
-                        .value,
+                    offset: controller.eval(
+                      Tween<Offset>(begin: Offset(0, offset), end: Offset.zero),
+                      curve: secondInterval,
+                    ),
                     child: RoundedRectangle.vertical(
                       width: dotWidth,
-                      // height: height,
                       color: color,
-                      height: Tween<double>(
-                        begin: height,
-                        end: dotWidth,
-                      )
-                          .animate(CurvedAnimation(
-                            parent: controller,
-                            curve: secondInterval,
-                          ))
-                          .value,
+                      height: controller.eval(
+                        Tween<double>(begin: height, end: dotWidth),
+                        curve: secondInterval,
+                      ),
                     ),
                   ),
                 ),
@@ -101,30 +81,16 @@ class BuildDot extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Transform.translate(
-                    // offset: Offset(0, offset),
-                    offset: Tween<Offset>(
-                      begin: Offset.zero,
-                      end: Offset(0, offset),
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: controller,
-                            curve: thirdInterval,
-                          ),
-                        )
-                        .value,
+                    offset: controller.eval(
+                      Tween<Offset>(begin: Offset.zero, end: Offset(0, offset)),
+                      curve: thirdInterval,
+                    ),
                     child: RoundedRectangle.vertical(
                       width: dotWidth,
-                      // height: height,
-                      height: Tween<double>(
-                        begin: dotWidth,
-                        end: height,
-                      )
-                          .animate(CurvedAnimation(
-                            parent: controller,
-                            curve: thirdInterval,
-                          ))
-                          .value,
+                      height: controller.eval(
+                        Tween<double>(begin: dotWidth, end: height),
+                        curve: thirdInterval,
+                      ),
                       color: color,
                     ),
                   ),
@@ -133,30 +99,16 @@ class BuildDot extends StatelessWidget {
             : Align(
                 alignment: Alignment.bottomCenter,
                 child: Transform.translate(
-                  offset: Tween<Offset>(
-                    begin: Offset(0, -offset),
-                    end: Offset.zero,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: controller,
-                          curve: forthInterval,
-                        ),
-                      )
-                      .value,
+                  offset: controller.eval(
+                    Tween<Offset>(begin: Offset(0, -offset), end: Offset.zero),
+                    curve: forthInterval,
+                  ),
                   child: RoundedRectangle.vertical(
                     width: dotWidth,
-                    height: Tween<double>(
-                      begin: height,
-                      end: dotWidth,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: controller,
-                            curve: forthInterval,
-                          ),
-                        )
-                        .value,
+                    height: controller.eval(
+                      Tween<double>(begin: height, end: dotWidth),
+                      curve: forthInterval,
+                    ),
                     color: color,
                   ),
                 ),

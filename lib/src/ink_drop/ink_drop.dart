@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 import 'dart:math' as math;
 import '../widgets/draw_arc.dart';
 
@@ -54,81 +55,56 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
             Visibility(
               visible: _animationController.value <= 0.9,
               child: Transform.translate(
-                offset: Tween<Offset>(
-                  begin: Offset(0, -size),
-                  end: Offset.zero,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.05,
-                          0.4,
-                          curve: Curves.easeInCubic,
-                        ),
-                      ),
-                    )
-                    .value,
+                offset: _animationController.eval(
+                  Tween<Offset>(
+                    begin: Offset(0, -size),
+                    end: Offset.zero,
+                  ),
+                  curve: const Interval(
+                    0.05,
+                    0.4,
+                    curve: Curves.easeInCubic,
+                  ),
+                ),
                 child: Arc.draw(
                   strokeWidth: strokeWidth,
                   size: size,
                   color: color,
                   startAngle: -3 * math.pi / 2,
-                  // endAngle: math.pi / (size * size),
-                  endAngle: Tween<double>(
-                    begin: math.pi / (size * size),
-                    end: math.pi / 1.13,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(
-                            0.38,
-                            0.9,
-                          ),
-                        ),
-                      )
-                      .value,
+                  endAngle: _animationController.evalDouble(
+                    from: math.pi / (size * size),
+                    to: math.pi / 1.13,
+                    begin: 0.38,
+                    end: 0.9,
+                  ),
                 ),
               ),
             ),
             Visibility(
               visible: _animationController.value <= 0.9,
               child: Transform.translate(
-                offset: Tween<Offset>(
-                  begin: Offset(0, -size),
-                  end: Offset.zero,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.05,
-                          0.4,
-                          curve: Curves.easeInCubic,
-                        ),
-                      ),
-                    )
-                    .value,
+                offset: _animationController.eval(
+                  Tween<Offset>(
+                    begin: Offset(0, -size),
+                    end: Offset.zero,
+                  ),
+                  curve: const Interval(
+                    0.05,
+                    0.4,
+                    curve: Curves.easeInCubic,
+                  ),
+                ),
                 child: Arc.draw(
                   strokeWidth: strokeWidth,
                   size: size,
                   color: color,
                   startAngle: -3 * math.pi / 2,
-                  endAngle: Tween<double>(
-                    begin: math.pi / (size * size),
-                    end: -math.pi / 1.13,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(
-                            0.38,
-                            0.9,
-                          ),
-                        ),
-                      )
-                      .value,
+                  endAngle: _animationController.evalDouble(
+                    from: math.pi / (size * size),
+                    to: -math.pi / 1.13,
+                    begin: 0.38,
+                    end: 0.9,
+                  ),
                 ),
               ),
             ),
@@ -141,20 +117,12 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 size: size,
                 color: color,
                 startAngle: -math.pi / 4,
-                endAngle: Tween<double>(
-                  begin: -math.pi / 7.4,
-                  end: -math.pi / 4,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.9,
-                          0.96,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: -math.pi / 7.4,
+                  to: -math.pi / 4,
+                  begin: 0.9,
+                  end: 0.96,
+                ),
               ),
             ),
             // Left
@@ -165,22 +133,12 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 size: size,
                 color: color,
                 startAngle: -3 * math.pi / 4,
-                // endAngle: math.pi / 4
-                // endAngle: math.pi / 7.4
-                endAngle: Tween<double>(
-                  begin: math.pi / 7.4,
-                  end: math.pi / 4,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.9,
-                          0.96,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: math.pi / 7.4,
+                  to: math.pi / 4,
+                  begin: 0.9,
+                  end: 0.96,
+                ),
               ),
             ),
 
@@ -192,21 +150,11 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 size: size,
                 color: color,
                 startAngle: -math.pi / 3.5,
-                // endAngle: math.pi / 28,
-                endAngle: Tween<double>(
-                  begin: math.pi / 1.273,
-                  end: math.pi / 28,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.9,
-                          1.0,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: math.pi / 1.273,
+                  to: math.pi / 28,
+                  begin: 0.9,
+                ),
               ),
             ),
 
@@ -218,23 +166,11 @@ class _InkDropState extends State<InkDrop> with SingleTickerProviderStateMixin {
                 size: size,
                 color: color,
                 startAngle: math.pi / 0.778,
-                // endAngle: -math.pi / 1.273
-                // endAngle: -math.pi / 27
-
-                endAngle: Tween<double>(
-                  begin: -math.pi / 1.273,
-                  end: -math.pi / 27,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.9,
-                          1.0,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: -math.pi / 1.273,
+                  to: -math.pi / 27,
+                  begin: 0.9,
+                ),
               ),
             ),
           ],

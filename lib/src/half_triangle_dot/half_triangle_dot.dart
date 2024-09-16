@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/draw_dot.dart';
 import '../widgets/draw_triangle.dart';
 
 class HalfTriangleDot extends StatefulWidget {
   final double size;
   final Color color;
+
   const HalfTriangleDot({
     Key? key,
     required this.size,
@@ -45,20 +48,10 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
     final double innerHeight = 0.74 * size;
     final double innerWidth = 0.87 * size;
     final double storkeWidth = size / 8;
-    final CurvedAnimation firstCurvedAnimation = CurvedAnimation(
-      parent: _animationController,
-      curve: Interval(0.0, 0.23, curve: curve),
-    );
 
-    final CurvedAnimation secondCurvedAnimation = CurvedAnimation(
-      parent: _animationController,
-      curve: Interval(0.33, 0.56, curve: curve),
-    );
-
-    final CurvedAnimation thirdCurvedAnimation = CurvedAnimation(
-      parent: _animationController,
-      curve: Interval(0.66, 0.89, curve: curve),
-    );
+    final Interval firstInterval = Interval(0.0, 0.23, curve: curve);
+    final Interval secondInterval = Interval(0.33, 0.56, curve: curve);
+    final Interval thirdInterval = Interval(0.66, 0.89, curve: curve);
 
     final Offset topLeftDotOffset = Offset(
       innerWidth / 4 - (storkeWidth / 2),
@@ -93,18 +86,24 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
                   child: Triangle.draw(
                     color: color,
                     strokeWidth: storkeWidth,
-                    start: Tween<Offset>(
-                      begin: Offset(innerWidth, innerHeight),
-                      end: Offset(innerWidth / 2, 0),
-                    ).animate(firstCurvedAnimation).value,
+                    start: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(innerWidth, innerHeight),
+                        end: Offset(innerWidth / 2, 0),
+                      ),
+                      curve: firstInterval,
+                    ),
                     middleLine: MiddleLine(
                       Offset(innerWidth, innerHeight),
                       Offset(0, innerHeight),
                     ),
-                    end: Tween<Offset>(
-                      begin: Offset(innerWidth / 2, 0),
-                      end: Offset(0, innerHeight),
-                    ).animate(firstCurvedAnimation).value,
+                    end: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(innerWidth / 2, 0),
+                        end: Offset(0, innerHeight),
+                      ),
+                      curve: firstInterval,
+                    ),
                   ),
                 ),
                 Visibility(
@@ -112,18 +111,24 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
                   child: Triangle.draw(
                     color: color,
                     strokeWidth: storkeWidth,
-                    start: Tween<Offset>(
-                      begin: Offset(innerWidth / 2, 0),
-                      end: Offset(0, innerHeight),
-                    ).animate(secondCurvedAnimation).value,
+                    start: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(innerWidth / 2, 0),
+                        end: Offset(0, innerHeight),
+                      ),
+                      curve: secondInterval,
+                    ),
                     middleLine: MiddleLine(
                       Offset(innerWidth / 2, 0),
                       Offset(innerWidth, innerHeight),
                     ),
-                    end: Tween<Offset>(
-                      begin: Offset(0, innerHeight),
-                      end: Offset(innerWidth, innerHeight),
-                    ).animate(secondCurvedAnimation).value,
+                    end: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(0, innerHeight),
+                        end: Offset(innerWidth, innerHeight),
+                      ),
+                      curve: secondInterval,
+                    ),
                   ),
                 ),
                 Visibility(
@@ -131,18 +136,24 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
                   child: Triangle.draw(
                     color: color,
                     strokeWidth: storkeWidth,
-                    start: Tween<Offset>(
-                      begin: Offset(0, innerHeight),
-                      end: Offset(innerWidth, innerHeight),
-                    ).animate(thirdCurvedAnimation).value,
+                    start: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(0, innerHeight),
+                        end: Offset(innerWidth, innerHeight),
+                      ),
+                      curve: thirdInterval,
+                    ),
                     middleLine: MiddleLine(
                       Offset(0, innerHeight),
                       Offset(innerWidth / 2, 0),
                     ),
-                    end: Tween<Offset>(
-                      begin: Offset(innerWidth, innerHeight),
-                      end: Offset(innerWidth / 2, 0),
-                    ).animate(thirdCurvedAnimation).value,
+                    end: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(innerWidth, innerHeight),
+                        end: Offset(innerWidth / 2, 0),
+                      ),
+                      curve: thirdInterval,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -154,11 +165,13 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
                       Visibility(
                         visible: _fistVisibility(_animationController),
                         child: Transform.translate(
-                          offset: Tween<Offset>(
-                                  begin: topRightDotOffset,
-                                  end: topLeftDotOffset)
-                              .animate(firstCurvedAnimation)
-                              .value,
+                          offset: _animationController.eval(
+                            Tween<Offset>(
+                              begin: topRightDotOffset,
+                              end: topLeftDotOffset,
+                            ),
+                            curve: firstInterval,
+                          ),
                           child: DrawDot.circular(
                             dotSize: storkeWidth,
                             color: color,
@@ -168,11 +181,13 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
                       Visibility(
                         visible: _secondVisibility(_animationController),
                         child: Transform.translate(
-                          offset: Tween<Offset>(
-                                  begin: topLeftDotOffset,
-                                  end: bottomMiddleDotOffset)
-                              .animate(secondCurvedAnimation)
-                              .value,
+                          offset: _animationController.eval(
+                            Tween<Offset>(
+                              begin: topLeftDotOffset,
+                              end: bottomMiddleDotOffset,
+                            ),
+                            curve: secondInterval,
+                          ),
                           child: DrawDot.circular(
                             dotSize: storkeWidth,
                             color: color,
@@ -182,11 +197,13 @@ class _HalfTriangleDotState extends State<HalfTriangleDot>
                       Visibility(
                         visible: _thirdVisibility(_animationController),
                         child: Transform.translate(
-                          offset: Tween<Offset>(
-                                  begin: bottomMiddleDotOffset,
-                                  end: topRightDotOffset)
-                              .animate(thirdCurvedAnimation)
-                              .value,
+                          offset: _animationController.eval(
+                            Tween<Offset>(
+                              begin: bottomMiddleDotOffset,
+                              end: topRightDotOffset,
+                            ),
+                            curve: thirdInterval,
+                          ),
                           child: DrawDot.circular(
                             dotSize: storkeWidth,
                             color: color,

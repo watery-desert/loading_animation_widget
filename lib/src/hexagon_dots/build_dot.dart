@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 import '../widgets/draw_dot.dart';
 
 class BuildDot extends StatelessWidget {
@@ -37,29 +38,13 @@ class BuildDot extends StatelessWidget {
         child: UnconstrainedBox(
           child: DrawDot.circular(
             color: color,
-            dotSize: first
-                ? Tween<double>(
-                    begin: 0.0,
-                    end: size / 6,
-                  )
-                    .animate(
-                      CurvedAnimation(
-                        parent: controller,
-                        curve: interval,
-                      ),
-                    )
-                    .value
-                : Tween<double>(
-                    begin: size / 6,
-                    end: 0.0,
-                  )
-                    .animate(
-                      CurvedAnimation(
-                        parent: controller,
-                        curve: interval,
-                      ),
-                    )
-                    .value,
+            dotSize: controller.eval(
+              Tween<double>(
+                begin: first ? 0.0 : size / 6,
+                end: first ? size / 6 : 0.0,
+              ),
+              curve: interval,
+            )
           ),
         ),
       ),

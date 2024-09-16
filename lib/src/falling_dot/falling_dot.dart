@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
-import '../widgets/draw_dot.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/draw_arc.dart';
+import '../widgets/draw_dot.dart';
 
 class FallingDot extends StatefulWidget {
   final double size;
@@ -21,6 +24,7 @@ class _FallingDotState extends State<FallingDot>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   final double startAngle = -math.pi / 4;
+
   @override
   void initState() {
     super.initState();
@@ -47,51 +51,26 @@ class _FallingDotState extends State<FallingDot>
     // final double dotOffset =
     //     (innerBoxSize - innerBoxSize / 2 - innerPadding / 2);
 
-    Color fallingFromTopDotColor() =>
-        ColorTween(begin: color.withOpacity(0.0), end: color)
-            .animate(
-              CurvedAnimation(
-                parent: _animationController,
-                curve: const Interval(
-                  0.0,
-                  0.2,
-                  curve: Curves.easeInOut,
-                ),
-              ),
-            )
-            .value!;
+    Color fallingFromTopDotColor() => _animationController.eval(
+          ColorTween(begin: color.withOpacity(0.0), end: color),
+          curve: const Interval(0.0, 0.2, curve: Curves.easeInOut),
+        )!;
 
-    double dotWidth() => Tween<double>(
-          begin: size * 0.01,
-          end: dotFinalSize,
-        )
-            .animate(
-              CurvedAnimation(
-                parent: _animationController,
-                curve: const Interval(
-                  0.15,
-                  0.3,
-                  curve: Curves.easeInOut,
-                ),
-              ),
-            )
-            .value;
+    double dotWidth() => _animationController.evalDouble(
+          from: size * 0.01,
+          to: dotFinalSize,
+          begin: 0.15,
+          end: 0.3,
+          curve: Curves.easeInOut,
+        );
 
-    double dotHeight() => Tween<double>(
-          begin: size * 0.1,
-          end: dotFinalSize,
-        )
-            .animate(
-              CurvedAnimation(
-                parent: _animationController,
-                curve: const Interval(
-                  0.15,
-                  0.3,
-                  curve: Curves.easeInOut,
-                ),
-              ),
-            )
-            .value;
+    double dotHeight() => _animationController.evalDouble(
+          from: size * 0.1,
+          to: dotFinalSize,
+          begin: 0.15,
+          end: 0.3,
+          curve: Curves.easeInOut,
+        );
 
     return Container(
       width: size,
@@ -110,21 +89,12 @@ class _FallingDotState extends State<FallingDot>
                 Visibility(
                   visible: _animationController.value <= 0.5,
                   child: Transform.rotate(
-                    angle: Tween<double>(
-                      begin: -math.pi,
-                      end: 0,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.0,
-                              0.3,
-                              curve: curve,
-                            ),
-                          ),
-                        )
-                        .value,
+                    angle: _animationController.evalDouble(
+                      from: -math.pi,
+                      to: 0,
+                      end: 0.3,
+                      curve: curve,
+                    ),
                     child: Arc.draw(
                       color: color,
                       size: size,
@@ -137,21 +107,12 @@ class _FallingDotState extends State<FallingDot>
                 Visibility(
                   visible: _animationController.value >= 0.5,
                   child: Transform.rotate(
-                    angle: Tween<double>(
-                      begin: 0,
-                      end: math.pi,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.5,
-                              0.8,
-                              curve: curve,
-                            ),
-                          ),
-                        )
-                        .value,
+                    angle: _animationController.evalDouble(
+                      to: math.pi,
+                      begin: 0.5,
+                      end: 0.8,
+                      curve: curve,
+                    ),
                     child: Arc.draw(
                       color: color,
                       size: size,
@@ -164,21 +125,13 @@ class _FallingDotState extends State<FallingDot>
                 Visibility(
                   visible: _animationController.value <= 0.5,
                   child: Transform.translate(
-                    offset: Tween<Offset>(
-                      begin: Offset(0, -size / 2),
-                      end: Offset.zero,
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.1,
-                              0.3,
-                              curve: curve,
-                            ),
-                          ),
-                        )
-                        .value,
+                    offset: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset(0, -size / 2),
+                        end: Offset.zero,
+                      ),
+                      curve: const Interval(0.1, 0.3, curve: curve),
+                    ),
                     child: DrawDot.elliptical(
                       width: dotWidth(),
                       height: dotHeight(),
@@ -189,36 +142,21 @@ class _FallingDotState extends State<FallingDot>
                 Visibility(
                   visible: _animationController.value >= 0.5,
                   child: Transform.translate(
-                    // offset: Offset(0, dotFinalSize),
-                    offset: Tween<Offset>(
-                      begin: Offset.zero,
-                      end: Offset(0, dotFinalSize),
-                    )
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(
-                              0.5,
-                              0.72,
-                              curve: Curves.easeInOut,
-                            ),
-                          ),
-                        )
-                        .value,
+                    offset: _animationController.eval(
+                      Tween<Offset>(
+                        begin: Offset.zero,
+                        end: Offset(0, dotFinalSize),
+                      ),
+                      curve: const Interval(0.5, 0.72, curve: Curves.easeInOut),
+                    ),
                     child: DrawDot.circular(
-                      // dotSize: dotFinalSize,
-                      dotSize: Tween<double>(begin: dotFinalSize, end: 0.0)
-                          .animate(
-                            CurvedAnimation(
-                              parent: _animationController,
-                              curve: const Interval(
-                                0.5,
-                                0.72,
-                                curve: Curves.easeInOut,
-                              ),
-                            ),
-                          )
-                          .value,
+                      dotSize: _animationController.evalDouble(
+                        from: dotFinalSize,
+                        to: 0.0,
+                        begin: 0.5,
+                        end: 0.72,
+                        curve: Curves.easeInOut,
+                      ),
                       color: color,
                     ),
                   ),

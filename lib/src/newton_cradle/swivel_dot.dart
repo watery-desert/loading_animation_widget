@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 import 'dart:math' as math;
 import '../widgets/draw_dot.dart';
 
@@ -47,21 +48,11 @@ class SwivelDot extends StatelessWidget {
           visible: controller.value <= thirdInterval,
           child: Transform.rotate(
             origin: rotationOrigin,
-            angle: Tween<double>(
-              begin: 0.0,
-              end: left ? math.pi / 5 : -math.pi / 5,
-            )
-                .animate(
-                  CurvedAnimation(
-                    parent: controller,
-                    curve: Interval(
-                      firstInterval,
-                      secondInterval,
-                      // curve: curve,
-                    ),
-                  ),
-                )
-                .value,
+            angle: controller.evalDouble(
+              to: math.pi / (left ? 5 : -5),
+              begin: firstInterval,
+              end: secondInterval,
+            ),
             child: DrawDot.circular(
               color: color,
               dotSize: dotSize,
@@ -72,21 +63,12 @@ class SwivelDot extends StatelessWidget {
           visible: controller.value >= thirdInterval,
           child: Transform.rotate(
             origin: rotationOrigin,
-            angle: Tween<double>(
-              begin: left ? math.pi / 5 : -math.pi / 5,
-              end: 0.0,
-            )
-                .animate(
-                  CurvedAnimation(
-                    parent: controller,
-                    curve: Interval(
-                      thirdInterval,
-                      fourthInterval,
-                      // curve: curve,
-                    ),
-                  ),
-                )
-                .value,
+            angle: controller.evalDouble(
+              from: math.pi / (left ? 5 : -5),
+              to: 0,
+              begin: thirdInterval,
+              end: fourthInterval,
+            ),
             child: DrawDot.circular(
               color: color,
               dotSize: dotSize,

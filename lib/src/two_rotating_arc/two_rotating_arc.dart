@@ -1,10 +1,14 @@
-import 'package:flutter/material.dart';
-import '../widgets/draw_arc.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
+import '../widgets/draw_arc.dart';
 
 class TwoRotatingArc extends StatefulWidget {
   final double size;
   final Color color;
+
   const TwoRotatingArc({
     Key? key,
     required this.color,
@@ -44,84 +48,44 @@ class _TwoRotatingArcState extends State<TwoRotatingArc>
           Visibility(
             visible: _animationController.value <= 0.5,
             child: Transform.rotate(
-              angle: Tween<double>(
-                begin: 0.0,
-                end: 3 * math.pi / 4,
-              )
-                  .animate(
-                    CurvedAnimation(
-                      parent: _animationController,
-                      curve: Interval(
-                        0.0,
-                        0.5,
-                        curve: firstCurve,
-                      ),
-                    ),
-                  )
-                  .value,
-              child: Arc.draw(
-                color: color,
-                size: size,
-                strokeWidth: strokeWidth,
-                startAngle: -math.pi / 2,
-                // endAngle: math.pi / (size * size),
-                endAngle: Tween<double>(
-                  begin: math.pi / (size * size),
-                  end: -math.pi / 2,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: Interval(
-                          0.0,
-                          0.5,
-                          curve: firstCurve,
-                        ),
-                      ),
-                    )
-                    .value,
+              angle: _animationController.evalDouble(
+                to: 3 * math.pi / 4,
+                end: 0.5,
+                curve: firstCurve,
               ),
+              child: Arc.draw(
+                  color: color,
+                  size: size,
+                  strokeWidth: strokeWidth,
+                  startAngle: -math.pi / 2,
+                  endAngle: _animationController.evalDouble(
+                    from: math.pi / (size * size),
+                    to: -math.pi / 2,
+                    end: 0.5,
+                    curve: firstCurve,
+                  )),
             ),
           ),
           Visibility(
             visible: _animationController.value >= 0.5,
             child: Transform.rotate(
-              angle: Tween<double>(
-                begin: math.pi / 4,
-                end: math.pi,
-              )
-                  .animate(
-                    CurvedAnimation(
-                      parent: _animationController,
-                      curve: Interval(
-                        0.5,
-                        1.0,
-                        curve: secondCurve,
-                      ),
-                    ),
-                  )
-                  .value,
+              angle: _animationController.evalDouble(
+                from: math.pi / 4,
+                to: math.pi,
+                begin: 0.5,
+                curve: secondCurve,
+              ),
               child: Arc.draw(
                 color: color,
                 size: size,
                 strokeWidth: strokeWidth,
                 startAngle: -math.pi / 2,
-                // endAngle: math.pi / (size * size),
-                endAngle: Tween<double>(
-                  begin: math.pi / 2,
-                  end: math.pi / (size * size),
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: Interval(
-                          0.5,
-                          1.0,
-                          curve: secondCurve,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: math.pi / 2,
+                  to: math.pi / (size * size),
+                  begin: 0.5,
+                  curve: secondCurve,
+                ),
               ),
             ),
           ),
@@ -133,77 +97,47 @@ class _TwoRotatingArcState extends State<TwoRotatingArc>
           Visibility(
             visible: _animationController.value <= 0.5,
             child: Transform.rotate(
-              angle: Tween<double>(begin: -math.pi, end: -math.pi / 4)
-                  .animate(
-                    CurvedAnimation(
-                      parent: _animationController,
-                      curve: Interval(0.0, 0.5, curve: firstCurve),
-                    ),
-                  )
-                  .value,
+              angle: _animationController.evalDouble(
+                from: -math.pi,
+                to: -math.pi / 4,
+                end: 0.5,
+                curve: firstCurve,
+              ),
               child: Arc.draw(
                 color: color,
                 size: size,
                 strokeWidth: strokeWidth,
                 startAngle: -math.pi / 2,
-                // endAngle: math.pi / (size * size),
-                endAngle: Tween<double>(
-                  begin: math.pi / (size * size),
-                  end: -math.pi / 2,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: Interval(
-                          0.0,
-                          0.5,
-                          curve: firstCurve,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: math.pi / (size * size),
+                  to: -math.pi / 2,
+                  end: 0.5,
+                  curve: firstCurve,
+                ),
               ),
             ),
           ),
           Visibility(
             visible: _animationController.value >= 0.5,
             child: Transform.rotate(
-              angle: Tween<double>(
-                begin: -3 * math.pi / 4,
-                end: 0.0,
-              )
-                  .animate(
-                    CurvedAnimation(
-                      parent: _animationController,
-                      curve: Interval(
-                        0.5,
-                        1.0,
-                        curve: secondCurve,
-                      ),
-                    ),
-                  )
-                  .value,
+              angle: _animationController.evalDouble(
+                from: -3 * math.pi / 4,
+                to: 0.0,
+                begin: 0.5,
+                end: 1.0,
+                curve: secondCurve,
+              ),
               child: Arc.draw(
                 color: color,
                 size: size,
                 strokeWidth: strokeWidth,
                 startAngle: -math.pi / 2,
-                // endAngle: math.pi / (size * size),
-                endAngle: Tween<double>(
-                  begin: math.pi / 2,
-                  end: math.pi / (size * size),
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: Interval(
-                          0.5,
-                          1.0,
-                          curve: secondCurve,
-                        ),
-                      ),
-                    )
-                    .value,
+                endAngle: _animationController.evalDouble(
+                  from: math.pi / 2,
+                  to: math.pi / (size * size),
+                  begin: 0.5,
+                  curve: secondCurve,
+                ),
               ),
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 
 class StaggeredDotsWave extends StatefulWidget {
   final double size;
@@ -149,30 +150,16 @@ class DotContainer extends StatelessWidget {
               opacity: controller.value <= offsetInterval.end ? 1 : 0,
               // opacity: 1,
               child: Transform.translate(
-                offset: Tween<Offset>(
-                  begin: Offset.zero,
-                  end: Offset(0, maxDy),
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: controller,
-                        curve: offsetInterval,
-                      ),
-                    )
-                    .value,
+                offset: controller.eval(
+                  Tween<Offset>(begin: Offset.zero, end: Offset(0, maxDy)),
+                  curve: offsetInterval,
+                ),
                 child: Container(
                   width: size * 0.13,
-                  height: Tween<double>(
-                    begin: size * 0.13,
-                    end: maxHeight,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: controller,
-                          curve: heightInterval,
-                        ),
-                      )
-                      .value,
+                  height: controller.eval(
+                    Tween<double>(begin: size * 0.13, end: maxHeight),
+                    curve: heightInterval,
+                  ),
                   decoration: BoxDecoration(
                     color: color,
                     borderRadius: BorderRadius.circular(size),
@@ -183,30 +170,16 @@ class DotContainer extends StatelessWidget {
             Opacity(
               opacity: controller.value >= offsetInterval.end ? 1 : 0,
               child: Transform.translate(
-                offset: Tween<Offset>(
-                  begin: Offset(0, maxDy),
-                  end: Offset.zero,
-                )
-                    .animate(
-                      CurvedAnimation(
-                        parent: controller,
-                        curve: reverseOffsetInterval,
-                      ),
-                    )
-                    .value,
+                offset: controller.eval(
+                  Tween<Offset>(begin: Offset(0, maxDy), end: Offset.zero),
+                  curve: reverseOffsetInterval,
+                ),
                 child: Container(
                   width: size * 0.13,
-                  height: Tween<double>(
-                    end: size * 0.13,
-                    begin: maxHeight,
-                  )
-                      .animate(
-                        CurvedAnimation(
-                          parent: controller,
-                          curve: reverseHeightInterval,
-                        ),
-                      )
-                      .value,
+                  height: controller.eval(
+                    Tween<double>(begin: maxHeight, end: size * 0.13),
+                    curve: reverseHeightInterval,
+                  ),
                   decoration: BoxDecoration(
                     color: color,
                     borderRadius: BorderRadius.circular(size),

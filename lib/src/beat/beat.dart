@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
+
 import '../widgets/draw_ring.dart';
 
 class Beat extends StatefulWidget {
@@ -44,38 +46,21 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
             Visibility(
               visible: _animationController.value <= 0.7,
               child: Transform.scale(
-                scale: Tween<double>(begin: 0.15, end: 1.0)
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.0,
-                          0.7,
-                          curve: Curves.easeInCubic,
-                        ),
-                      ),
-                    )
-                    .value,
+                scale: _animationController.evalDouble(
+                  from: 0.15,
+                  end: 0.7,
+                  curve: Curves.easeInCubic,
+                ),
                 child: Opacity(
-                  opacity: Tween<double>(begin: 0.0, end: 1.0)
-                      .animate(
-                        CurvedAnimation(
-                          parent: _animationController,
-                          curve: const Interval(0.0, 0.2),
-                        ),
-                      )
-                      .value,
+                  opacity: _animationController.evalDouble(end: 0.2),
                   child: Ring.draw(
                     color: color,
                     size: size,
-                    strokeWidth: Tween<double>(begin: size / 5, end: size / 8)
-                        .animate(
-                          CurvedAnimation(
-                            parent: _animationController,
-                            curve: const Interval(0.0, 0.7),
-                          ),
-                        )
-                        .value,
+                    strokeWidth: _animationController.evalDouble(
+                      from: size / 5,
+                      to: size / 8,
+                      end: 0.7,
+                    ),
                   ),
                 ),
               ),
@@ -85,24 +70,23 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
               child: Ring.draw(
                 color: color,
                 size: size,
-                strokeWidth: size / 8,
+                strokeWidth: _animationController.evalDouble(
+                  from: size / 5,
+                  to: size / 8,
+                  end: 0.7,
+                ),
               ),
             ),
             Visibility(
               visible: _animationController.value <= 0.8 &&
                   _animationController.value >= 0.7,
               child: Transform.scale(
-                scale: Tween<double>(begin: 1.0, end: 1.15)
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.7,
-                          0.8,
-                        ),
-                      ),
-                    )
-                    .value,
+                scale: _animationController.evalDouble(
+                  from: 1,
+                  to: 1.15,
+                  begin: 0.7,
+                  end: 0.8,
+                ),
                 child: Ring.draw(
                   color: color,
                   size: size,
@@ -113,17 +97,12 @@ class _BeatState extends State<Beat> with SingleTickerProviderStateMixin {
             Visibility(
               visible: _animationController.value >= 0.8,
               child: Transform.scale(
-                scale: Tween<double>(begin: 1.15, end: 1.0)
-                    .animate(
-                      CurvedAnimation(
-                        parent: _animationController,
-                        curve: const Interval(
-                          0.8,
-                          0.9,
-                        ),
-                      ),
-                    )
-                    .value,
+                scale: _animationController.evalDouble(
+                  from: 1.15,
+                  to: 1,
+                  begin: 0.8,
+                  end: 0.9,
+                ),
                 child: Ring.draw(
                   color: color,
                   size: size,

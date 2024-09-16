@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/src/util/animation_controller_utils.dart';
 
 class WaveDots extends StatefulWidget {
   final double size;
@@ -32,14 +33,10 @@ class _WaveDotsState extends State<WaveDots>
           required Offset end,
           required Interval interval}) =>
       Transform.translate(
-        offset: Tween<Offset>(begin: begin, end: end)
-            .animate(
-              CurvedAnimation(
-                parent: _controller,
-                curve: interval,
-              ),
-            )
-            .value,
+        offset: _controller.eval(
+          Tween<Offset>(begin: begin, end: end),
+          curve: interval,
+        ),
         child: Container(
           width: widget.size / 5,
           height: widget.size / 5,
