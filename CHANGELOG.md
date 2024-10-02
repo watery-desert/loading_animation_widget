@@ -1,3 +1,6 @@
+## 1.3.0
+- Api change `prograssiveDots` -> `progressiveDots`
+- improved performance, with this PR [#9](https://github.com/watery-desert/loading_animation_widget/pull/9)
 ## 1.2.1
 - dart sdk constraint update
 ## 1.2.0+1

@@ -8,7 +8,6 @@
 [![YouTube Badge](https://img.shields.io/badge/-YouTube-EA3223?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/waterydesert)
 [![Twitter Badge](https://img.shields.io/badge/-Twitter-198CD8?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/watery_desert)
 [![Patreon Badge](https://img.shields.io/badge/-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/watery_desert)
-[![BMC Badge](https://img.shields.io/badge/-Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=535353)](https://www.buymeacoffee.com/watery_desert)
 [![pub package](https://img.shields.io/pub/v/loading_animation_widget.svg?style=for-the-badge)](https://pub.dev/packages/loading_animation_widget)
 [![WateryDesert](https://img.shields.io/badge/WateryDesert-Website-F8D977?style=for-the-badge)](https://waterydesert.com)
 </div>
@@ -38,7 +37,7 @@ Loading animation with one `color`
 ```dart
 Scaffold(
     body: Center(
-      child: LoadingAnimationWidget.staggeredDotWave(
+      child: LoadingAnimationWidget.staggeredDotsWave(
         color: Colors.white,
         size: 200,
       ),
@@ -63,107 +62,87 @@ Scaffold(
 <table>
    <tr>
       <td align="center">
-         <a href="https://dribbble.com/shots/3967147-">waveDots</a>
-         <br>
+         <p>waveDots</p>
          <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/waveDots.gif"  width="200"/>
       </td>
       <td align="center">
-         <a href="https://dribbble.com/shots/13966332-Spinner">inkDrop</a>
-         <br>
+         <p>inkDrop</p>
          <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/inkDrop.gif"  width="200"/>
       </td>
       <td align="center">
-         <a href="https://dribbble.com/shots/3308544-Preloader-IV">twistingDots</a>
-         <br>
+         <p>twistingDots</p>
          <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/twistingDots.gif"  width="200"/>
       </td>
       <td align="center">
-         <a href="https://ui8.net/luciyamaji/products/50-animated-loaders?rel=pro21">threeRotatingDots</a>
-         <br> 
+         <p>threeRotatingDots</p>
          <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/threeRotatingDots.gif"  width="200"/>
       </td>
    </tr>
    <td align="center">
-      <a href="https://dribbble.com/shots/6727060-Wave-Loader">staggeredDotsWave</a>
-      <br> 
+      <p>staggeredDotsWave</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/staggeredDotsWave.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://codepen.io/rbv912/pen/dYbqLQ?editors=0100">fourRotatingDots</a>
-      <br> 
+      <p>fourRotatingDots</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/fourRotatingDots.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://codepen.io/rbv912/pen/dYbqLQ?editors=0100">fallingDot</a>
-      <br> 
+      <p>fallingDot</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/fallingDot.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/5790156-Focus-Reactive">progressiveDots</a>
-      <br> 
+      <p>progressiveDots</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/progressiveDots.gif"  width="200"/>
    </td>
    </tr>
    <td align="center">
-      <a href="https://dribbble.com/shots/7888464-Spinner">discreteCircular</a>
-      <br> 
+      <p>discreteCircular</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/discreteCircular.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/5095383-Loader-Animation">threeArchedCircle</a>
-      <br> 
+      <p>threeArchedCircle</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/threeArchedCircle.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/2379959-Bouncy-Ball">bouncingBall</a>
-      <br> 
+      <p>bouncingBall</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/bouncingBall.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/7498067-Loaders-Vol3-Colors">flickr</a>
-      <br> 
+      <p>flickr</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/flickr.gif"  width="200"/>
    </td>
    </tr>
    <td align="center">
-      <a href="https://dribbble.com/shots/11962729-Healio-Emotion-Tracker-Apple-Watch">hexagonDots</a>
-      <br> 
+      <p>hexagonDots</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/hexagonDots.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://www.behance.net/gallery/58535057/Loader">beat</a>
-      <br> 
+      <p>beat</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/beat.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/2050032-Elemental-Loader">twoRotatingArc</a>
-      <br> 
+      <p>twoRotatingArc</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/twoRotatingArc.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://ui8.net/luciyamaji/products/50-animated-loaders?rel=pro21">horizontalRotatingDots</a>
-      <br> 
+      <p>horizontalRotatingDots</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/horizontalRotatingDots.gif"  width="200"/>
    </td>
    </tr>
    <td align="center">
-      <a href="https://dribbble.com/shots/2968029-Newton-Cradle-preloader-principle-freebie">newtonCradle</a>
-      <br> 
+      <p>newtonCradle</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/newtonCradle.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/9109441-Flat-Loaders">stretchedDots</a>
-      <br> 
+      <p>stretchedDots</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/stretchedDots.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/5878367-Loaders">halfTriangleDot</a>
-      <br> 
+      <p>halfTriangleDot</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/halfTriangleDot.gif"  width="200"/>
    </td>
    <td align="center">
-      <a href="https://dribbble.com/shots/2689200-Loading">dotsTriangle</a>
-      <br> 
+      <p>dotsTriangle</p>
       <img src="https://raw.githubusercontent.com/watery-desert/assets/main/loading_animation_widget/dotsTriangle.gif"  width="200"/>
    </td>
    </tr>
